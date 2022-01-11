@@ -52,7 +52,6 @@ public class CustomerController {
         Customer customer = new Customer(cId,name,email,address);
         customerService.updateCustomer(customer);
         return "redirect:/";
-
     }
 
 }
