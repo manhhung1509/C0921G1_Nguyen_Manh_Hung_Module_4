@@ -27,9 +27,11 @@ public class CalculateController {
            char opera = operator.charAt(0);
            float result = CalculateService.calculate(first, second, opera);
            model.addAttribute("result",result);
-       }catch (Exception e){
-           model.addAttribute("Error",e.getMessage());
-       }
+       }catch (NumberFormatException e){
+           model.addAttribute("Error","enter number");
+       }catch(Exception e){
+            model.addAttribute("Error",e.getMessage());
+        }
         return "index";
     }
 }
