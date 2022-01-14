@@ -1,7 +1,5 @@
 package medical_decleration.model;
 
-import java.util.Arrays;
-
 public class CommonInformation {
     String name;
     Integer birthday;
@@ -15,13 +13,13 @@ public class CommonInformation {
     String phone;
     String email;
     TravelInformation travelInformation;
-    String[] symptom;
-    String[] exposure;
+    Symptom symptom;
+    Exposure exposure;
 
     public CommonInformation() {
     }
 
-    public CommonInformation(String name, Integer birthday, String gender, String country, String id, String city, String district, String commune, String address, String phone, String email, TravelInformation travelInformation, String[] symptom, String[] exposure) {
+    public CommonInformation(String name, Integer birthday, String gender, String country, String id, String city, String district, String commune, String address, String phone, String email, TravelInformation travelInformation, Symptom symptom, Exposure exposure) {
         this.name = name;
         this.birthday = birthday;
         this.gender = gender;
@@ -134,19 +132,19 @@ public class CommonInformation {
         this.travelInformation = travelInformation;
     }
 
-    public String[] getSymptom() {
+    public Symptom getSymptom() {
         return symptom;
     }
 
-    public void setSymptom(String[] symptom) {
+    public void setSymptom(Symptom symptom) {
         this.symptom = symptom;
     }
 
-    public String[] getExposure() {
+    public Exposure getExposure() {
         return exposure;
     }
 
-    public void setExposure(String[] exposure) {
+    public void setExposure(Exposure exposure) {
         this.exposure = exposure;
     }
 }

@@ -207,82 +207,82 @@
                     <form:input path="email" cssStyle="width: 100%; height: 40px; border-radius: 6px; margin-top: -9px"/>
                 </div>
             </div>
-<%--            <div class="row">--%>
-<%--                <div class="col-lg-12">--%>
-<%--                    <p style="margin-top: 12px; margin-bottom: 14px">--%>
-<%--                        Trong vòng 14 ngày qua, anh/chị có thấy xuất hiện dấu hiệu nào sau đây không? <span--%>
-<%--                            style="font-style: italic; color: red">(*)</span>--%>
-<%--                    </p>--%>
-<%--                    <table>--%>
-<%--                        <tr>--%>
-<%--                            <th style="width: 40%">Triệu chứng</th>--%>
-<%--                            <th style="width: 5%">Có</th>--%>
-<%--                            <th style="width: 5%">Không</th>--%>
-<%--                            <th style="width: 40%">Triệu chứng</th>--%>
-<%--                            <th style="width: 5%">Có</th>--%>
-<%--                            <th style="width: 5%">Không</th>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <td>Sốt <span style="font-style: italic; color: red">(*)</span></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td>Nôn/Buồn nôn <span style="font-style: italic; color: red">(*)</span></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <td>Ho <span style="font-style: italic; color: red">(*)</span></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td>Tiêu chảy <span style="font-style: italic; color: red">(*)</span></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <td>Khó thở <span style="font-style: italic; color: red">(*)</span></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td>Xuất huyết ngoài da <span style="font-style: italic; color: red">(*)</span></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <td>Đau họng <span style="font-style: italic; color: red">(*)</span></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td>Nổi ban ngoài da <span style="font-style: italic; color: red">(*)</span></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                            <td><input type="radio"></td>--%>
-<%--                        </tr>--%>
-<%--                    </table>--%>
-<%--                </div>--%>
-<%--                <div class="row">--%>
-<%--                    <div class="col-lg-12">--%>
-<%--                        <p style="margin-top: 12px; margin-bottom: 14px">--%>
-<%--                            Lịch Sử phơi nhiễm:Trong vòng 14 ngày qua, anh/chị có <span--%>
-<%--                                style="font-style: italic; color: red">(*)</span>--%>
-<%--                        </p>--%>
-<%--                        <table>--%>
-<%--                            <tr>--%>
-<%--                                <th style="width: 80%"></th>--%>
-<%--                                <th style="width: 10%">Có</th>--%>
-<%--                                <th style="width: 10%">Không</th>--%>
-<%--                            </tr>--%>
-<%--                            <tr>--%>
-<%--                                <td>Đến trang trại chăn nuôi/chợ buôn bán động vật sống/cơ sở giết mổ động vật/tiếp xúc động--%>
-<%--                                    vật <span style="font-style: italic; color: red">(*)</span></td>--%>
-<%--                                <td><input type="radio"></td>--%>
-<%--                                <td><input type="radio"></td>--%>
-<%--                            </tr>--%>
-<%--                            <tr>--%>
-<%--                                <td>Tiếp xúc gần(<2m) với người mắc bệnh viêm đường hô hấp do nCoV <span--%>
-<%--                                        style="font-style: italic; color: red">(*)</span></td>--%>
-<%--                                <td><input type="radio"></td>--%>
-<%--                                <td><input type="radio"></td>--%>
-<%--                            </tr>--%>
-<%--                        </table>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p style="margin-top: 12px; margin-bottom: 14px">
+                        Trong vòng 14 ngày qua, anh/chị có thấy xuất hiện dấu hiệu nào sau đây không? <span
+                            style="font-style: italic; color: red">(*)</span>
+                    </p>
+                    <table>
+                        <tr>
+                            <th style="width: 40%">Triệu chứng</th>
+                            <th style="width: 5%">Có</th>
+                            <th style="width: 5%">Không</th>
+                            <th style="width: 40%">Triệu chứng</th>
+                            <th style="width: 5%">Có</th>
+                            <th style="width: 5%">Không</th>
+                        </tr>
+                        <tr>
+                            <td>Sốt <span style="font-style: italic; color: red">(*)</span></td>
+                            <td><form:radiobutton path="symptom.sot" value="true"/></td>
+                            <td><form:radiobutton path="symptom.sot" value="false"/></td>
+                            <td>Nôn/Buồn nôn <span style="font-style: italic; color: red">(*)</span></td>
+                            <td><form:radiobutton path="symptom.non" value="true"/></td>
+                            <td><form:radiobutton path="symptom.non" value="false"/></td>
+                        </tr>
+                        <tr>
+                            <td>Ho <span style="font-style: italic; color: red">(*)</span></td>
+                            <td><form:radiobutton path="symptom.ho" value="true"/></td>
+                            <td><form:radiobutton path="symptom.ho" value="false"/></td>
+                            <td>Tiêu chảy <span style="font-style: italic; color: red">(*)</span></td>
+                            <td><form:radiobutton path="symptom.tieuChay" value="true"/></td>
+                            <td><form:radiobutton path="symptom.tieuChay" value="false"/></td>
+                        </tr>
+                        <tr>
+                            <td>Khó thở <span style="font-style: italic; color: red">(*)</span></td>
+                            <td><form:radiobutton path="symptom.khoTho" value="true"/></td>
+                            <td><form:radiobutton path="symptom.khoTho" value="false"/></td>
+                            <td>Xuất huyết ngoài da <span style="font-style: italic; color: red">(*)</span></td>
+                            <td><form:radiobutton path="symptom.xuatHuyet" value="true"/></td>
+                            <td><form:radiobutton path="symptom.xuatHuyet" value="false"/></td>
+                        </tr>
+                        <tr>
+                            <td>Đau họng <span style="font-style: italic; color: red">(*)</span></td>
+                            <td><form:radiobutton path="symptom.dauHong" value="true"/></td>
+                            <td><form:radiobutton path="symptom.dauHong" value="false"/></td>
+                            <td>Nổi ban ngoài da <span style="font-style: italic; color: red">(*)</span></td>
+                            <td><form:radiobutton path="symptom.noiBan" value="true"/></td>
+                            <td><form:radiobutton path="symptom.noiBan" value="false"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p style="margin-top: 12px; margin-bottom: 14px">
+                            Lịch Sử phơi nhiễm:Trong vòng 14 ngày qua, anh/chị có <span
+                                style="font-style: italic; color: red">(*)</span>
+                        </p>
+                        <table>
+                            <tr>
+                                <th style="width: 80%"></th>
+                                <th style="width: 10%">Có</th>
+                                <th style="width: 10%">Không</th>
+                            </tr>
+                            <tr>
+                                <td>Đến trang trại chăn nuôi/chợ buôn bán động vật sống/cơ sở giết mổ động vật/tiếp xúc động
+                                    vật <span style="font-style: italic; color: red">(*)</span></td>
+                                <td><form:radiobutton path="exposure.tiepXucDongVat" value="true"/></td>
+                                <td><form:radiobutton path="exposure.tiepXucDongVat" value="false"/></td>
+                            </tr>
+                            <tr>
+                                <td>Tiếp xúc gần(<2m) với người mắc bệnh viêm đường hô hấp do nCoV <span
+                                        style="font-style: italic; color: red">(*)</span></td>
+                                <td><form:radiobutton path="exposure.tiepXucBenhNhan" value="true"/></td>
+                                <td><form:radiobutton path="exposure.tiepXucBenhNhan" value="false"/></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <p style="font-weight: bold; font-size: 14px; color: red; margin-top: 30px; margin-bottom: 6px">

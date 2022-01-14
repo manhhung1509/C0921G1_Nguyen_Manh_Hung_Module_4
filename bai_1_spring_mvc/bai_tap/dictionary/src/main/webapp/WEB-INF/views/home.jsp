@@ -6,7 +6,7 @@
 </head>
 <body>
 <h2>Dictionary</h2>
-<form action="/translate" >
+<form action="/translate" method="post">
     <label>Word : </label><br/>
     <input type="text" name="word" placeholder="enter word" value="${word}" /><br/>
      <h3>Mean : ${mean}</h3>

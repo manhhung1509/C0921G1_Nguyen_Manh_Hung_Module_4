@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f46b6a9b-5c60-453f-aa6d-3a97bdefe21b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/bai_tap/email_configuration/email/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/bai_tap/email_configuration/email/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/bai_tap/email_configuration/email/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/bai_tap/email_configuration/email/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/bai_tap/medical_declaration/decleration/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/bai_tap/medical_declaration/decleration/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/bai_tap/medical_declaration/decleration/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/bai_tap/medical_declaration/decleration/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/thuc_hanh/login/login_form/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/thuc_hanh/login/login_form/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/thuc_hanh/login/login_form/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/thuc_hanh/upload_file/upload_file/src/main/webapp/WEB-INF/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/thuc_hanh/upload_file/upload_file/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bai_4_data_binding/thuc_hanh/upload_file/upload_file/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/6.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/build/classes/java/main/dictionary/dictionary_controller/DictionaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/build/classes/java/main/dictionary/dictionary_controller/DictionaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/build/libs/dictionary-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/build/libs/dictionary-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/src/main/java/dictionary/dictionary_controller/DictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/src/main/java/dictionary/dictionary_controller/DictionaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/src/main/webapp/WEB-INF/views/home.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/bai_1_spring_mvc/bai_tap/dictionary/src/main/webapp/WEB-INF/views/home.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_2_spring_controller/bai_tap/bai_2_may_tinh/ Calculator/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bai_2_spring_controller/bai_tap/bai_2_may_tinh/ Calculator/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/java/cg/wbd/grandemonstration/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/java/cg/wbd/grandemonstration/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/java/cg/wbd/grandemonstration/service/CustomerServiceFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/java/cg/wbd/grandemonstration/service/CustomerServiceFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/java/cg/wbd/grandemonstration/service/impl/SimpleCustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/java/cg/wbd/grandemonstration/service/impl/SimpleCustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/webapp/WEB-INF/app-conf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/webapp/WEB-INF/app-conf.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/webapp/customers/info.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/webapp/WEB-INF/templates/customers/info.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/webapp/customers/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management/src/main/webapp/WEB-INF/templates/customers/list.jsp" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="23eddx19goIbwmP0jkIm6Eq2CLt" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bai_4_data_binding/bai_tap/medical_declaration" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f46b6a9b-5c60-453f-aa6d-3a97bdefe21b" name="Default Changelist" comment="" />
+      <created>1642098577116</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642098577116</updated>
+      <workItem from="1642098578696" duration="13000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1642098590906">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1642098590906" />
+  </component>
+</project>
