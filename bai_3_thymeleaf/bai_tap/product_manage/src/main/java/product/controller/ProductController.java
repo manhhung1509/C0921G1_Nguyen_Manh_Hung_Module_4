@@ -1,6 +1,5 @@
 package product.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,7 +17,7 @@ public class ProductController {
     IProductService productService;
 
     @GetMapping("")
-    public String index(Model model, RedirectAttributes redirect) {
+    public String index(Model model) {
         List<Product> productList = productService.findAll();
         model.addAttribute("products", productList);
         return "/index";

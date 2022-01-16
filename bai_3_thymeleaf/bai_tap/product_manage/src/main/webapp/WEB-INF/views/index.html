@@ -37,7 +37,7 @@
     </thead>
     <tbody>
     <tr th:each="row,rowStat : ${products}">
-        <td th:text="${row.getName()}"></td>
+        <td th:text="${row.getName()}">Onions</td>
         <td th:text="${row.getManufacture()}"></td>
         <td th:text="${row.getCountry()}"></td>
         <td><a th:href="@{/product/{id}/edit(id=${row.getId()})}">edit</a></td>
