@@ -30,7 +30,7 @@
         <td th:text="${row.getName()}"></td>
         <td th:text="${row.getSinger()}"></td>
         <td th:text="${row.getSongType()}"></td>
-        <td ><a th:href="@{${row.getUrl()}}">Click to access</a></td>
+        <td ><a th:href="@{${row.getUrl()}}" th:text="${row.getUrl()}"></a></td>
         <td><a th:href="@{/song/{id}/update(id=${row.getId()})}">edit</a></td>
         <td><a th:href="@{/song/{id}/delete(id=${row.getId()})}">delete</a></td>
     </tr>
