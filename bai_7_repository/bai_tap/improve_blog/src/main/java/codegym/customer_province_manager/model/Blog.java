@@ -12,6 +12,7 @@ public class Blog {
     private String name;
     private String author;
     private String date;
+
     @Column(length = 5000)
     private String content;
 
