@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/category/layout :: head"></head>
+<body>
+<h3>View category</h3>
+<p>
+    <a th:href="@{/category}">
+        Back to category list
+    </a>
+</p>
+<div id="detail">
+    <div class="cusdetail">
+        <label>Id:</label>
+        <label th:text="${category.get().id}"></label>
+    </div>
+    <div class="cusdetail">
+        <label>Name:</label>
+        <label th:text="${category.get().name}"></label>
+    </div>
+</div>
+<footer th:replace="/category/layout :: footer"></footer>
+</body>
+</html>
+
