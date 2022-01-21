@@ -17,7 +17,8 @@ public class UserDto implements Validator {
     private String lastName;
 
     private String phoneNumber;
-    
+
+    @NotNull(message = "Blanks are not allowed")
     @Min(value = 18, message = "Age must be more than or equal 18")
     private Integer age;
 
