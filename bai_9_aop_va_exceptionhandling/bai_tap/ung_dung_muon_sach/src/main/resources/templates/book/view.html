@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>View</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+<form action="/books">
+    <table class="table table-bordered table-striped ">
+        <tr>
+            <th>Tên sách  :</th>
+            <td th:text="${book.name}"></td>
+        </tr>
+
+        <tr>
+            <th>Số lượng hiện tại : </th>
+            <td th:text="${book.quantity}"></td>
+        </tr>
+
+        <tr>
+            <th>Tác giả :</th>
+            <td th:text="${book.customer.name}"></td>
+        </tr>
+
+    </table>
+    <tr>
+        <td> <input type="submit" value="Back to list "></td>
+    </tr>
+</form>
+</body>
+</html>
