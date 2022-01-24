@@ -28,7 +28,7 @@ public class BookController {
     public ModelAndView viewBook(@PathVariable("id") Long id) {
         Book book = bookService.findById(id);
         if (book == null) {
-            return new ModelAndView("error");
+            return new ModelAndView("error-404");
         }
         ModelAndView modelAndView = new ModelAndView("book/view");
         modelAndView.addObject("book", book);
