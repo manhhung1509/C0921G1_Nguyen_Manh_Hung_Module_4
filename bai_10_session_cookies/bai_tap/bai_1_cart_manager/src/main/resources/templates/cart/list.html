@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
+</head>
+<body>
+<div style="padding-left: 12px; margin-bottom: 25px">
+    <span><a style="font-size: 20px; color: red" th:href="@{/shop}"><i class="fas fa-arrow-circle-left"></i></a></span>
+    <span style="padding-left: 5px"><a style="font-size: 20px; color: red" th:href="@{/shop}">Quay Lại</a></span>
+</div>
+<div class="container" th:if="${cart!=null && cart.getProductMap().size()>0}">
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Description</th>
+                <th scope="col">quantity</th>
+                <th scope="col">action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="productMap :${cart.productMap}">
+                <th scope="row" th:text="${productMap.getKey().name}"></th>
+                <td>
+                    <img th:src="${productMap.getKey().image}" style="width: 70px; height: auto">
+                </td>
+                <td th:text="${productMap.getKey().getDescription()}"></td>
+                <td>
+                    <div class="d-flex">
+                        <span>
+                            <button class="disable">
+                                <a th:href="@{/shop/add/__${productMap.getKey().getId()}__(action='sub')}">
+                                    <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg"
+                                         alt="remove-icon" width="10" height="10">
+                                </a>
+                            </button>
+                        </span>
+                        <span>
+                            <input style="text-align: center; width: 30px" type="text" class="text-input"
+                                   th:placeholder="${productMap.value}">
+                        </span>
+                        <span>
+                            <button>
+                                  <a th:href="@{/shop/add/__${productMap.getKey().getId()}__(action='add')}">
+                                     <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg"
+                                          alt="add-icon" width="10" height="10">
+                                </a>
+                            </button>
+                        </span>
+                    </div>
+                </td>
+                <td style="text-align: center">
+                    <a style="font-size: 20px" th:href="@{/cart/delete/__${productMap.getKey().getId()}__}"><i class="fas fa-trash-alt"></i></a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <strong style="color: red">Total: </strong>
+            <span style="color: green" th:text="${cart.getTotal()}"></span>
+        </div>
+        <div class="col-lg-12">
+<!--            chưa làm chức năng thanh toán-->
+            <button style="background: #8cd0e9;border-radius: 10px">
+                <span>Thanh Toán</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div class="container" th:if="${cart == null || cart.getProductMap().size() == 0}">
+    <div>
+        <img style="margin-left: 429px;margin-top: 130px" src="img/gio_hang_trong.png" alt="Giỏ hàng trống.">
+    </div>
+</div>
+</body>
+</html>
+
+

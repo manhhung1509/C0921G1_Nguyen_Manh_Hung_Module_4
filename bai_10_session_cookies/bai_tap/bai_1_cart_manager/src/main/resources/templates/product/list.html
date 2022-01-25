@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
+</head>
+<body>
+<div class="row">
+    <div class="col-lg-10"></div>
+    <div class="col-lg-2">
+        <span><a th:href="@{/cart}">Xem giỏ hàng</a></span>
+        <a th:href="@{/cart}" style="font-size: 35px"><i class="fas fa-shopping-cart"></i></a>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product :${productList}">
+                <th scope="row" th:text="${product.getName()}"></th>
+                <td>
+                    <a th:href="@{/shop/detail/{id}(id=${product.getId()})}">
+                        <img th:src="${product.getImage()}" style="width: 107px; height: auto">
+                    </a>
+                </td>
+                <td th:text="${product.getPrice()}"></td>
+                <td>
+                    <a class="btn btn-success" role="button" th:href="@{/shop/add/{id}(id=${product.getId()})}">Add to
+                        card</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
