@@ -1,7 +1,6 @@
 package com.example.book_manager.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
 
 @Entity
 @Table(name = "books")

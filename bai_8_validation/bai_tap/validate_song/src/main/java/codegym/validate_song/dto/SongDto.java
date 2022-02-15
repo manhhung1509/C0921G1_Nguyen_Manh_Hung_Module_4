@@ -6,17 +6,17 @@ public class SongDto {
     private Long id;
     @NotBlank(message = "no blanks or spaces")
     @Size(max = 800, message = "Number of characters must be less than 800 letters")
-    @Pattern(regexp = "^[\\p{Lu}\\p{Ll}\\s0-9]*$", message = "must not contain special characters")
+    @Pattern(regexp = "^([\\p{Lu}\\p{Ll}\\s0-9](,)?)*$", message = "must not contain special characters")
     private String name;
 
     @NotBlank(message = "no blanks or spaces")
     @Size(max = 300, message = "Number of characters must be less than 300 letters")
-    @Pattern(regexp = "^[\\p{Lu}\\p{Ll}\\s0-9]*$", message = "must not contain special characters")
+    @Pattern(regexp = "^^([\\p{Lu}\\p{Ll}\\s0-9](,)?)*$", message = "must not contain special characters")
     private String singer;
 
     @NotBlank(message = "no blanks or spaces")
     @Size(max = 1000, message = "Number of characters must be less than 1000 letters")
-    @Pattern(regexp = "^[0-9,\\p{Lu}\\p{Ll}\\s]*$", message = "must not contain special characters except (,)")
+    @Pattern(regexp = "^([\\p{Lu}\\p{Ll}\\s0-9](,)?)*$", message = "must not contain special characters except (,)")
     private String typeSong;
 
     public SongDto() {

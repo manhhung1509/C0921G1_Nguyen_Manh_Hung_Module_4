@@ -44,7 +44,7 @@ public class SongController {
     }
 
     @PostMapping("/create-song")
-    public ModelAndView createSong(@Valid @ModelAttribute("songDto") SongDto songDto,
+    public ModelAndView createSong(@Valid SongDto songDto,
                                      BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView("/create");
         if (bindingResult.hasFieldErrors()){

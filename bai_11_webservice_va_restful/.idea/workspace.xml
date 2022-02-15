@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="044ae6f0-9a94-42a8-a846-88cf3d542f91" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../bai_10_session_cookies/bai_tap/bai_1_cart_manager/src/main/java/com/codegym/cart_manager/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_10_session_cookies/bai_tap/bai_1_cart_manager/src/main/java/com/codegym/cart_manager/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/src/main/java/com/example/blog_restful/controller/RestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/src/main/java/com/example/blog_restful/controller/RestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/src/main/java/com/example/blog_restful/service/impl/BlogServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/src/main/java/com/example/blog_restful/service/impl/BlogServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_4_data_binding/bai_tap/medical_declaration/decleration/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_4_data_binding/bai_tap/medical_declaration/decleration/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_4_data_binding/bai_tap/medical_declaration/decleration/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_4_data_binding/bai_tap/medical_declaration/decleration/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_4_data_binding/bai_tap/medical_declaration/decleration/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_4_data_binding/bai_tap/medical_declaration/decleration/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_7_repository/thuc_hanh/province-manager/spring-customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_7_repository/thuc_hanh/province-manager/spring-customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_8_validation/bai_tap/validate_song/src/main/java/codegym/validate_song/controller/SongController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_8_validation/bai_tap/validate_song/src/main/java/codegym/validate_song/controller/SongController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_8_validation/bai_tap/validate_song/src/main/java/codegym/validate_song/dto/SongDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_8_validation/bai_tap/validate_song/src/main/java/codegym/validate_song/dto/SongDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/bai_tap/ung_dung_muon_sach/src/main/java/com/example/book_manager/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/bai_tap/ung_dung_muon_sach/src/main/java/com/example/book_manager/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ExceptionHandler/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ExceptionHandler/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ghi_Log/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ghi_Log/customer-management" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="24uUeTHF6oCx2LftFXuc2Gi761b" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bai_tap" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="044ae6f0-9a94-42a8-a846-88cf3d542f91" name="Default Changelist" comment="" />
+      <created>1644480060670</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644480060670</updated>
+      <workItem from="1644480062246" duration="10000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="96" key="FileChooserDialogImpl" timestamp="1644480071823">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="96" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1644480071823" />
+  </component>
+</project>

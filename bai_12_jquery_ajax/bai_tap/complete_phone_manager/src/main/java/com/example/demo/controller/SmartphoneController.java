@@ -19,6 +19,7 @@ public class SmartphoneController {
     public ResponseEntity<Smartphone> createSmartphone(@RequestBody Smartphone smartphone) {
         return new ResponseEntity<>(smartphoneService.save(smartphone), HttpStatus.CREATED);
     }
+    
     @GetMapping("/list")
     public ModelAndView getAllSmartphonePage() {
         ModelAndView modelAndView = new ModelAndView("phones/list");

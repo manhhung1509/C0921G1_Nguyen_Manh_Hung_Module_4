@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{customer.title}"></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+</head>
+<body>
+<h1 th:text="#{customer.heading}"></h1>
+Language: <a href="?lang=en">English</a> | <a href="?lang=vi">VietNam</a>
+<table class="table table-bordered table-striped  ">
+    <tr>
+        <th th:text="#{customer.id}"></th>
+        <th th:text="#{customer.name}"></th>
+        <th th:text="#{customer.gender}"></th>
+    </tr>
+    <th:block th:each="customer: ${customerList}">
+        <tr>
+            <td th:text="${customer.getId()}"></td>
+            <td th:text="${customer.getName()}"></td>
+            <td th:text="${customer.getGender()}"></td>
+        </tr>
+    </th:block>
+</table>
+
+</body>
+</html>

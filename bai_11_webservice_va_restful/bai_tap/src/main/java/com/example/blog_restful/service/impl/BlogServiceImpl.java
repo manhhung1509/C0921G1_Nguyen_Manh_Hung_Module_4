@@ -57,7 +57,6 @@ public class BlogServiceImpl implements IBlogService {
     @Override
     public void remove(Integer id) {
         blogRepository.deleteById(id);
-
     }
 
 }

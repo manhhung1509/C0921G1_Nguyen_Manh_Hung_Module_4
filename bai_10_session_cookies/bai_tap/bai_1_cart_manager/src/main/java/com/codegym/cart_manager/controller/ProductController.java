@@ -7,7 +7,6 @@ import com.codegym.cart_manager.service.IProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -59,7 +58,7 @@ public class ProductController {
             }
             cartDto.addProduct(productDto);
         }
-
         return "redirect:/cart";
     }
+
 }

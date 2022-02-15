@@ -46,13 +46,11 @@ public class RestController {
 
 
 //    Xem danh sách các bài viết của một category
-
     @GetMapping(value = "/blog-category/{id}")
     public ResponseEntity<List<Blog>> getCategoryOfBlog(@PathVariable Integer id) {
         List<Blog> blogs = this.blogService.findCategoryOfBlog(id);
         if (blogs.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-
         }
         return new ResponseEntity<>(blogs, HttpStatus.OK);
     }
