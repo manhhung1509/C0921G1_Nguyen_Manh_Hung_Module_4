@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/category/layout :: head">
+</head>
+<body>
+<h3>category</h3>
+<p>
+    <a th:href="@{/create-category}">
+        Add new category
+    </a>
+</p>
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+<table id = "blog">
+    <thead>
+    <tr>
+        <th>Category Name</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row : ${categories}">
+        <td th:text="${row.getName()}"></td>
+        <td><a th:href="@{/view-category/__${row.id}__ }">View Detail</a></td>
+        <td><a th:href="@{/edit-category/__${row.id}__ }">Edit</a></td>
+        <td><a th:href="@{/delete-category/__${row.id}__ }">Delete</a></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <a th:href="@{'/category'(page=${categories.number - 1})}" th:if="${categories.hasPrevious()}">Previous</a>
+    <span th:text="${categories.number + 1}"></span>/<span th:text="${categories.totalPages}"></span>
+    <a th:href="@{'/category'(page=${categories.number + 1})}" th:if="${categories.hasNext()}">Next</a>
+</div>
+<footer th:replace="/category/layout :: footer"></footer>
+</body>
+</html>

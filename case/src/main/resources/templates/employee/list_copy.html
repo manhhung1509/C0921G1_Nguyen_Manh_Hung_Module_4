@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="searchTable">
+    <table class="table table-bordered table-striped ">
+        <tr>
+            <td>NO</td>
+            <td>Employee name</td>
+            <td>Email</td>
+            <td>Birthday</td>
+            <td>ID Card</td>
+            <td>Division</td>
+            <td>Education Degree</td>
+            <td>Position</td>
+            <td>Salary</td>
+            <td>Address</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+
+        <th:block th:each="employee,loop : ${employees}">
+            <tr>
+
+                <td th:text="${loop.count}"></td>
+                <td th:text="${employee.employeeName}"></td>
+                <td th:text="${employee.employeeEmail}"></td>
+                <td th:text="${employee.employeeBirthday}"></td>
+                <td th:text="${employee.employeeIdCard}"></td>
+                <td th:text="${employee.division.divisionName}"></td>
+                <td th:text="${employee.educationDegree.educationDegreeName}"></td>
+                <td th:text="${employee.position.positionName}"></td>
+                <td th:text="${employee.employeeSalary}"></td>
+                <td th:text="${employee.employeeAddress}"></td>
+                <td><a th:href="@{/edit-employee/__${employee.id}__}">Edit</a></td>
+                <td>
+                    <button type="button" class="btn btn-danger" id="btnModalDelete"
+                            th:onclick="'javascript:showDelete(\''+${employee.id}+'\');'">Delete
+                    </button>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>

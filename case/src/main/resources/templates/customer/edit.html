@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit customer</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
     <style>
@@ -26,7 +26,7 @@
 <body>
 
 <div class="container">
-    <form th:object="${customerDto}" class="well form-horizontal" action="/customers/edit-customer" method="post">
+    <form th:object="${customerDto}" class="well form-horizontal" action="/edit-customer" method="post">
         <a href="/customers">
             <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Back to
                 list
@@ -36,7 +36,7 @@
         <fieldset>
             <!-- Form Name -->
             <legend>
-                <center><h2><b>Edit Form <br> <span th:text="${mes}"></span> </b></h2></center>
+                <center><h2><b>Edit Form <br> <span th:text="${message}"></span> </b></h2></center>
             </legend>
             <br>
 
@@ -55,7 +55,9 @@
                     <p th:errors="*{customerType}"></p>
                 </div>
             </div>
+
             <input th:field="*{id}" hidden>
+
             <div class="form-group">
                 <label class="col-md-4 control-label ">Code</label>
                 <div class="col-md-4 inputGroupContainer">

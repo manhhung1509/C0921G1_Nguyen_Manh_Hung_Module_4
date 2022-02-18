@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Employees </title>
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="row">
+    <div class="col-lg-3">
+        <a href="/home">
+            <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Back to
+                home
+            </button>
+        </a>
+    </div>
+    <div class="col-lg-6">
+        <h1 style="text-align: center;margin-top:41px; margin-bottom: 42px; color: green">Employees</h1>
+    </div>
+    <div class="col-lg-3">
+        <span><a href="/create-employee" style="font-size: 20px;color: #3f48eb; padding-left: 99px">Create Employee</a></span>
+        <span><a href="/create-employee" style="font-size: 20px;color: red"><i class="fas fa-user-plus"></i></a></span>
+    </div>
+</div>
+<form class="d-flex col-6" action="/employees" method="get">
+    <input class="form-control" name="employeeName" type="search" placeholder="name">
+    <input class="form-control" name="phone" type="search" placeholder="phone">
+    <input class="form-control" name="address" type="search" placeholder="address">
+    <input class="btn btn-light" type="submit" value="Search">
+</form>
+
+<div id="searchTable">
+    <table class="table table-bordered table-striped ">
+        <tr>
+            <td>NO</td>
+            <td>Employee name</td>
+            <td>Email</td>
+            <td>Birthday</td>
+            <td>ID Card</td>
+            <td>Phone</td>
+            <td>Division</td>
+            <td>Education Degree</td>
+            <td>Position</td>
+            <td>Salary</td>
+            <td>Address</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+
+        <th:block th:each="employee,loop : ${employees}">
+            <tr>
+
+                <td th:text="${loop.count}"></td>
+                <td th:text="${employee.employeeName}"></td>
+                <td th:text="${employee.employeeEmail}"></td>
+                <td th:text="${employee.employeeBirthday}"></td>
+                <td th:text="${employee.employeeIdCard}"></td>
+                <td th:text="${employee.employeePhone}"></td>
+                <td th:text="${employee.division.divisionName}"></td>
+                <td th:text="${employee.educationDegree.educationDegreeName}"></td>
+                <td th:text="${employee.position.positionName}"></td>
+                <td th:text="${employee.employeeSalary}"></td>
+                <td th:text="${employee.employeeAddress}"></td>
+                <td><a th:href="@{/edit-employee/__${employee.id}__}">Edit</a></td>
+                <td>
+                    <button type="button" class="btn btn-danger" id="btnModalDelete"
+                            th:onclick="'javascript:showDelete(\''+${employee.id}+'\');'">Delete
+                    </button>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+<!--modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--                ...-->
+            </div>
+            <div class="modal-footer">
+                <!--           ...-->
+            </div>
+        </div>
+    </div>
+</div>
+<!--phan trang-->
+<div>
+    <a th:href="@{'/employees'(page=${employees.number - 1}, employeeName=${employeeName}, phone = ${phone}, adrress = ${address})}"
+       th:if="${employees.hasPrevious()}">Previous</a>
+    <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
+    <a th:href="@{'/employees'(page=${employees.number + 1}, employeeName=${employeeName}, phone = ${phone}, adrress = ${address})}"
+       th:if="${employees.hasNext()}">Next</a>
+</div>
+
+<!--nhay trang-->
+<div>
+    <span th:each="pageNo:${#numbers.sequence(0,employees.totalPages - 1)}">
+            <a th:href="@{/employees(page=${pageNo})}" th:text="${pageNo+1}"></a>
+        </span>
+</div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    function showDelete(id) {
+        $.ajax({
+            type: "GET",
+            url: "/delete-employee/" + id,
+            dataType: "HTML",
+            success: function (data) {
+                console.log(data);
+                $(".modal-body").html(data);
+                $("#exampleModal").modal("show");
+            }
+        })
+    }
+
+    function actionDelete(id) {
+        $.ajax({
+            type: "POST",
+            url: "/delete-employee/" + id,
+            dataType: "HTML",
+            success: function (data) {
+                let message = "Delete successfully!"
+                setTimeout(function () {
+                    $("#exampleModal").modal("hide");
+                }, 2000)
+                $("#searchTable").html(data);
+                $(".modal-body").html(message);
+            }
+        })
+    }
+</script>
+</html>

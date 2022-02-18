@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Services</title>
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="row">
+    <div class="col-lg-3">
+        <a href="/home">
+            <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Back to
+                home
+            </button>
+        </a>
+    </div>
+    <div class="col-lg-6">
+        <h1 style="text-align: center;margin-top:41px; margin-bottom: 42px; color: green">Services</h1>
+    </div>
+    <div class="col-lg-3">
+        <span><a href="/create-service" style="font-size: 20px;color: #3f48eb; padding-left: 99px">Create Service</a></span>
+        <span><a href="/create-service" style="font-size: 20px;color: red"><i class="fas fa-user-plus"></i></a></span>
+    </div>
+</div>
+
+
+<div id="searchTable">
+    <table class="table table-bordered table-striped ">
+        <tr>
+            <td>NO</td>
+            <td>Service Name</td>
+            <td>service Code</td>
+            <td>Area</td>
+            <td>Cost</td>
+            <td>Max People</td>
+            <td>Rent Type</td>
+            <td>Service Type</td>
+        </tr>
+
+        <th:block th:each="service,loop : ${serviceList}">
+            <tr>
+
+                <td th:text="${loop.count}"></td>
+                <td th:text="${service.serviceName}"></td>
+                <td th:text="${service.serviceCode}"></td>
+                <td th:text="${service.serviceArea}"></td>
+                <td th:text="${service.serviceCost}"></td>
+                <td th:text="${service.serviceMaxPeople}"></td>
+                <td th:text="${service.serviceType.serviceTypeName}"></td>
+                <td th:text="${service.rentType.rentTypeName}"></td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+
+<!--phan trang-->
+<div>
+    <a th:href="@{'/services'(page=${serviceList.number - 1})}"
+       th:if="${serviceList.hasPrevious()}">Previous</a>
+    <span th:text="${serviceList.number + 1}"></span>/<span th:text="${serviceList.totalPages}"></span>
+    <a th:href="@{'/services'(page=${serviceList.number + 1})}"
+       th:if="${serviceList.hasNext()}">Next</a>
+</div>
+
+<!--nhay trang-->
+<div>
+    <span th:each="pageNo:${#numbers.sequence(0,serviceList.totalPages - 1)}">
+            <a th:href="@{/serviceList(page=${pageNo})}" th:text="${pageNo+1}"></a>
+        </span>
+</div>
+</body>
+</html>

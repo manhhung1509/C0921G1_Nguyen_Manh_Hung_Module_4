@@ -4,18 +4,12 @@ package com.example.demo.dto;
 import com.example.demo.model.contract.AttachService;
 import com.example.demo.model.contract.Contract;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+
 
 public class ContractDetailDto {
     private  Integer id;
-    //    @NotNull(message = "Pls input not null")
-//    @NotBlank(message = "pls input not null")
+
     @Min(value = 0,message = "pls input min >0")
     private int quantity;
 

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0e83e2ac-308f-476b-95d3-a5f89622f9f6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_7_repository/thuc_hanh/province-manager/spring-customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_7_repository/thuc_hanh/province-manager/spring-customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ExceptionHandler/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ExceptionHandler/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ghi_Log/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ghi_Log/customer-management" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="25BH6GWkFvgwLw5KZKwzXXhwsvz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="show.unlinked.gradle.project.popup" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0e83e2ac-308f-476b-95d3-a5f89622f9f6" name="Default Changelist" comment="" />
+      <created>1644993382606</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644993382606</updated>
+      <workItem from="1644993390550" duration="113000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="82" key="FileChooserDialogImpl" timestamp="1644993491153">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="82" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1644993491153" />
+    <state x="91" y="2" key="new project wizard" timestamp="1644993504926">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="91" y="2" key="new project wizard/0.0.1280.680@0.0.1280.680" timestamp="1644993504926" />
+  </component>
+</project>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+    #clickDelete{
+        background: #f31b1b;
+        color: black;
+        margin-top: 20px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Delete Employee</h3>
+<div>
+    <span>Name: </span><span th:text="${employee.employeeName}"></span><br>
+    <span>Id: </span><span th:text="${employee.id}"></span>
+    Are you sure to delete?
+</div>
+<button id="clickDelete" type="button" class="btn btn-danger"  th:onclick="'javascript:actionDelete(\''+${employee.id}+'\');'">Delete</button>
+</body>
+</html>

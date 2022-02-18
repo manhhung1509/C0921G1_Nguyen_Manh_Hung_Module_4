@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+    #clickDelete{
+        background: #f31b1b;
+        color: black;
+        margin-top: 20px;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<h1>Delete</h1>
-<h1>Are you sure to delete this customer.</h1>
-<input type="hidden" th:text="${customer.id}">
+<h3>Delete Customer</h3>
+<!--<input type="hidden" th:text="${customer.id}">-->
 <div>
-    content: <p th:text="${customer.customerName}"></p>
-    content: <p th:text="${customer.id}"></p>
+    <span>Name: </span><span th:text="${customer.customerName}"></span><br>
+    <span>Id: </span><span th:text="${customer.id}"></span>
+    Are you sure to delete?
 </div>
 <button id="clickDelete" type="button" class="btn btn-danger"  th:onclick="'javascript:actionDelete(\''+${customer.id}+'\');'">Delete</button>
 </body>
