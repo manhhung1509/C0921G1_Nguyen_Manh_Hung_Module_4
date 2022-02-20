@@ -14,17 +14,21 @@
 <div class="row">
     <div class="col-lg-3">
         <a href="/home">
-            <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Back to
-                home
+            <button type="button" class="btn btn-warning" style="font-size: 17px; margin-bottom: -17px; height: 39px;">
+                <span><i class="fas fa-chevron-circle-left"></i></span> Back to Home
             </button>
         </a>
+
     </div>
     <div class="col-lg-6">
         <h1 style="text-align: center;margin-top:41px; margin-bottom: 42px; color: green">Employees</h1>
     </div>
     <div class="col-lg-3">
-        <span><a href="/create-employee" style="font-size: 20px;color: #3f48eb; padding-left: 99px">Create Employee</a></span>
-        <span><a href="/create-employee" style="font-size: 20px;color: red"><i class="fas fa-user-plus"></i></a></span>
+        <a href="/create-employee" style="font-size: 20px;color: #3f48eb; padding-left: 99px">
+            <button type="button" style="background: #14ce14;font-size: 17px;height: 39px;margin-top: 3px;border-radius: 6px;border: none">
+                Create Employee <span><i class="fas fa-user-plus" style="color: red"></i></span>
+            </button>
+        </a>
     </div>
 </div>
 <form class="d-flex col-6" action="/employees" method="get">
@@ -66,7 +70,11 @@
                 <td th:text="${employee.position.positionName}"></td>
                 <td th:text="${employee.employeeSalary}"></td>
                 <td th:text="${employee.employeeAddress}"></td>
-                <td><a th:href="@{/edit-employee/__${employee.id}__}">Edit</a></td>
+                <td>
+                    <a th:href="@{/edit-employee/__${employee.id}__}">
+                        <button type="button" class="btn btn-warning" >Edit</button>
+                    </a>
+                </td>
                 <td>
                     <button type="button" class="btn btn-danger" id="btnModalDelete"
                             th:onclick="'javascript:showDelete(\''+${employee.id}+'\');'">Delete
@@ -96,7 +104,7 @@
         </div>
     </div>
 </div>
-<!--phan trang-->
+
 <div>
     <a th:href="@{'/employees'(page=${employees.number - 1}, employeeName=${employeeName}, phone = ${phone}, adrress = ${address})}"
        th:if="${employees.hasPrevious()}">Previous</a>
@@ -105,7 +113,6 @@
        th:if="${employees.hasNext()}">Next</a>
 </div>
 
-<!--nhay trang-->
 <div>
     <span th:each="pageNo:${#numbers.sequence(0,employees.totalPages - 1)}">
             <a th:href="@{/employees(page=${pageNo})}" th:text="${pageNo+1}"></a>

@@ -1,173 +1,142 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create Employee</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <style>
         p {
             color: red;
-        }
-
-        footer{
-            position:fixed;
-            bottom:0px;
-            left:0px;
-            right:0px;
-            margin-bottom:0px;
-        }
-        hr{
-            color: #00cccc;
+            margin-top: -23px;
+            margin-bottom: 25px;
         }
     </style>
 </head>
 <body>
+<a href="/employees">
+    <button type="button" class="btn btn-warning" style="font-size: 17px; margin-bottom: -17px; height: 39px;">
+        <span><i class="fas fa-chevron-circle-left"></i></span> Back to list
+    </button>
+</a>
+<div class="registration-form">
+    <form th:object="${employeeDto}" class="well form-horizontal" action="/create-employee" method="post">
+        <div class="form-icon">
+            <span><i class="icon icon-user"></i></span>
+        </div>
 
-<div class="container">
-    <form  th:object="${employeeDto}" class="well form-horizontal" action="/create-employee" method="post">
-        <a href="/employees"><button type="button" class="btn btn-warning" ><span class="glyphicon glyphicon-chevron-left"></span> Back to list</button></a>
+        <div class="form-group" style="margin-top: -22px">
+            <label>Name:</label>
+            <input th:field="*{employeeName}" type="text" class="form-control item" id="employeeName"
+                   placeholder="Employee Name">
+            <p th:errors="*{employeeName}"></p>
+        </div>
 
-        <fieldset>
-            <!-- Form Name -->
-            <legend><center><h2><b>Create Form <br> <span th:text="${message}"></span> </b></h2></center></legend><br>
+        <div class="form-group" style="margin-top: -26px">
+            <label>Email:</label>
+            <input th:field="*{employeeEmail}" type="text" class="form-control item" id="email" placeholder="Email">
+            <p th:errors="*{employeeEmail}"></p>
+        </div>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label ">Name</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input  th:field="*{employeeName}" placeholder="Code" class="form-control"  type="text">
-                    </div>
-                    <p th:errors="*{employeeName}"></p>
-                </div>
+        <div class="form-group" style="margin-top: -26px">
+            <label>Id Card:</label>
+            <input th:field="*{employeeIdCard}" type="text" class="form-control item" id="idCard" placeholder="Id Card">
+            <p th:errors="*{employeeIdCard}"></p>
+        </div>
+
+        <div class="form-group" style="margin-top: -26px">
+            <label>Salary:</label>
+            <input th:field="*{employeeSalary}" type="text" class="form-control item" id="salary" placeholder="Salary">
+            <p th:errors="*{employeeSalary}"></p>
+        </div>
+
+        <div class="form-group" style="margin-top: -26px">
+            <label>Phone Number:</label>
+            <input th:field="*{employeePhone}" type="text" class="form-control item" id="phoneNumber"
+                   placeholder="Phone Number">
+            <p th:errors="*{employeePhone}"></p>
+        </div>
+
+        <div class="form-group" style="margin-top: -26px">
+            <label>Birthday:</label>
+            <div class="input-group">
+                <input th:field="*{employeeBirthday}" placeholder="Birthday" class="form-control" type="date"
+                       style="border-radius: 35px">
             </div>
+            <p th:errors="*{employeeBirthday}"></p>
+        </div>
 
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">E-Mail</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input th:field="*{employeeEmail}" placeholder="E-Mail Address" class="form-control"  type="email">
-                    </div>
-                    <p th:errors="*{employeeEmail}"></p>
-                </div>
+        <div class="form-group">
+            <label>Division:</label>
+            <div class="input-group">
+                <select th:field="*{division}" class="form-control selectpicker"
+                        style="height: 35px; border-radius: 35px">
+                    <option th:each="devision : ${divisions}"
+                            th:value="${devision.id}"
+                            th:text="${devision.divisionName}">
+                    </option>
+                </select>
             </div>
+            <p th:errors="*{division}"></p>
+        </div>
 
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Id Card</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input th:field="*{employeeIdCard}"  class="form-control" type="number">
-                    </div>
-                    <p th:errors="*{employeeIdCard}"></p>
-                </div>
+        <div class="form-group">
+            <label>Education Degree:</label>
+            <div class="input-group">
+                <select th:field="*{educationDegree}" class="form-control selectpicker"
+                        style="height: 35px; border-radius: 35px">
+                    <option th:each="educationDegree : ${educationDegrees}"
+                            th:value="${educationDegree.id}"
+                            th:text="${educationDegree.educationDegreeName}">
+                    </option>
+                </select>
             </div>
+            <p th:errors="*{educationDegree}"></p>
+        </div>
 
-
-            <div class="form-group">
-                <label class="col-md-4 control-label ">Salary</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-bitcoin"></i></span>
-                        <input  th:field="*{employeeSalary}" placeholder="Address" class="form-control"  type="text">
-                    </div>
-                    <p th:errors="*{employeeSalary}"></p>
-                </div>
+        <div class="form-group">
+            <label>Position:</label>
+            <div class="input-group">
+                <select th:field="*{position}" class="form-control selectpicker"
+                        style="height: 35px; border-radius: 35px">
+                    <option th:each="postion : ${positions}"
+                            th:value="${postion.id}"
+                            th:text="${postion.positionName}">
+                    </option>
+                </select>
             </div>
+            <p th:errors="*{position}"></p>
+        </div>
 
+        <div class="form-group" style="margin-top: 10px">
+            <label>Address:</label>
+            <input th:field="*{employeeAddress}" type="text" class="form-control item" id="address"
+                   placeholder="Address">
+            <p th:errors="*{employeeAddress}"></p>
+        </div>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label">Phone Number</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input th:field="*{employeePhone}" placeholder="(84)" class="form-control" type="number">
-                    </div>
-                    <p th:errors="*{employeePhone}"></p>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Birthday</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input  th:field="*{employeeBirthday}" placeholder="Birthday" class="form-control"  type="date">
-                    </div>
-                    <p th:errors="*{employeeBirthday}"></p>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Division</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select th:field="*{division}" class="form-control selectpicker">
-                            <option th:each="devision : ${divisions}"
-                                    th:value="${devision.id}"
-                                    th:text="${devision.divisionName}">
-                            </option>
-                        </select>
-                    </div>
-                    <p th:errors="*{division}"></p>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Education Degree</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-education"></i></span>
-                        <select th:field="*{educationDegree}" class="form-control selectpicker">
-                            <option th:each="educationDegree : ${educationDegrees}"
-                                    th:value="${educationDegree.id}"
-                                    th:text="${educationDegree.educationDegreeName}">
-                            </option>
-                        </select>
-                    </div>
-                    <p th:errors="*{educationDegree}"></p>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Position</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select th:field="*{position}" class="form-control selectpicker">
-                            <option th:each="postion : ${positions}"
-                                    th:value="${postion.id}"
-                                    th:text="${postion.positionName}">
-                            </option>
-                        </select>
-                    </div>
-                    <p th:errors="*{position}"></p>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label class="col-md-4 control-label ">Address</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input  th:field="*{employeeAddress}" placeholder="Address" class="form-control"  type="text">
-                    </div>
-                    <p th:errors="*{employeeAddress}"></p>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-warning" style="margin-left: 497px"><span class="glyphicon glyphicon-send"></span>Submit</button>
-        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-block create-account">Create Employee</button>
+        </div>
     </form>
+    <div class="social-media">
+        <h5>Sign up with social media</h5>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/page.ngoctrinh"><i class="icon-social-facebook" title="Facebook"></i></a>
+            <a href="#"><i class="icon-social-google" title="Google"></i></a>
+            <a href="#"><i class="icon-social-twitter" title="Twitter"></i></a>
+        </div>
+    </div>
 </div>
-</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="assets/js/script.js"></script>
 </body>
 </html>

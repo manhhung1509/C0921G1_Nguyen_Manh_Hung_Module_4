@@ -16,8 +16,8 @@
 <div class="row">
     <div class="col-lg-3">
         <a href="/home">
-            <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Back to
-                home
+            <button type="button" class="btn btn-warning" style="font-size: 17px; margin-bottom: -17px; height: 39px;">
+                <span><i class="fas fa-chevron-circle-left"></i></span> Back to Home
             </button>
         </a>
     </div>
@@ -25,8 +25,11 @@
         <h1 style="text-align: center;margin-top:41px; margin-bottom: 42px; color: green">Customer</h1>
     </div>
     <div class="col-lg-3">
-        <span><a href="/create-customer" style="font-size: 20px;color: #3f48eb; padding-left: 99px">Create Customer</a></span>
-        <span><a href="/create-customer" style="font-size: 20px;color: red"><i class="fas fa-user-plus"></i></a></span>
+       <a href="/create-customer" style="font-size: 20px;color: #3f48eb; padding-left: 99px">
+            <button type="button" style="background: #14ce14;font-size: 17px;height: 39px;margin-top: 3px;border-radius: 6px;border: none">
+                Create Customer <span><i class="fas fa-user-plus" style="color: red"></i></span>
+            </button>
+       </a>
     </div>
 </div>
 <form class="d-flex col-6" action="/customers" method="get">
@@ -69,7 +72,11 @@
                 <td th:text="${customer.customerPhone}"></td>
                 <td th:text="${customer.customerEmail}"></td>
                 <td th:text="${customer.customerAddress}"></td>
-                <td><a th:href="@{/edit-customer/__${customer.id}__}">Edit</a></td>
+                <td>
+                    <a th:href="@{/edit-customer/__${customer.id}__}">
+                        <button type="button" class="btn btn-warning" >Edit</button>
+                    </a>
+                </td>
                 <td>
                     <button type="button" class="btn btn-danger" id="btnModalDelete"
                             th:onclick="'javascript:showDelete(\''+${customer.id}+'\');'">Delete

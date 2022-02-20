@@ -1,162 +1,129 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Edit customer</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Customer</title>
+    <link rel="stylesheet" href="../fontawesome-free-5.15.4-web/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 
     <style>
         p {
             color: red;
-        }
-
-        footer {
-            position: fixed;
-            bottom: 0px;
-            left: 0px;
-            right: 0px;
-            margin-bottom: 0px;
-        }
-
-        hr {
-            color: #00cccc;
+            margin-top: -23px;
+            margin-bottom: 25px;
         }
     </style>
 </head>
 <body>
-
-<div class="container">
+<a href="/customers">
+    <button type="button" class="btn btn-warning" style="font-size: 17px; margin-bottom: -17px; height: 39px;">
+        <span><i class="fas fa-chevron-circle-left"></i></span> Back to list
+    </button>
+</a>
+<div class="registration-form">
     <form th:object="${customerDto}" class="well form-horizontal" action="/edit-customer" method="post">
-        <a href="/customers">
-            <button type="button" class="btn btn-warning"><span class="glyphicon glyphicon-chevron-left"></span> Back to
-                list
-            </button>
-        </a>
+        <div class="form-icon">
+            <span><i class="icon icon-user"></i></span>
+        </div>
 
-        <fieldset>
-            <!-- Form Name -->
-            <legend>
-                <center><h2><b>Edit Form <br> <span th:text="${message}"></span> </b></h2></center>
-            </legend>
-            <br>
+        <input th:field="*{id}" hidden>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label">Customer Type</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select th:field="*{customerType}" class="form-control selectpicker">
-                            <option th:each="c : ${customerTypes}"
-                                    th:value="${c.id}"
-                                    th:text="${c.customerTypeName}">
-                            </option>
-                        </select>
-                    </div>
-                    <p th:errors="*{customerType}"></p>
-                </div>
+        <div class="form-group" style="margin-top: -22px">
+            <label>Name:</label>
+            <input th:field="*{customerName}" type="text" class="form-control item" id="customerName"
+                   placeholder="Customer Name">
+            <p th:errors="*{customerName}"></p>
+        </div>
+
+        <div class="form-group" style="margin-top: -26px">
+            <label>Code:</label>
+            <input th:field="*{customerCode}" type="text" class="form-control item" id="customerCode" placeholder="Customer code">
+            <p th:errors="*{customerCode}"></p>
+        </div>
+
+        <div class="form-group" style="margin-top: -26px">
+            <label>Id Card:</label>
+            <input th:field="*{customerIdCard}" type="text" class="form-control item" id="idCard" placeholder="Id Card">
+            <p th:errors="*{customerIdCard}"></p>
+        </div>
+
+        <div class="form-group" style="margin-top: -26px">
+            <label>Email:</label>
+            <input th:field="*{customerEmail}" type="text" class="form-control item" id="email" placeholder="Email">
+            <p th:errors="*{customerEmail}"></p>
+        </div>
+
+        <div class="form-group" style="margin-top: -26px">
+            <label>Phone Number:</label>
+            <input th:field="*{customerPhone}" type="text" class="form-control item" id="phoneNumber"
+                   placeholder="Phone Number">
+            <p th:errors="*{customerPhone}"></p>
+        </div>
+
+        <div class="form-group" style="margin-top: -26px">
+            <label>Birthday:</label>
+            <div class="input-group">
+                <input th:field="*{customerBirthDay}" placeholder="Birthday" class="form-control" type="date"
+                       style="border-radius: 35px">
             </div>
+            <p th:errors="*{customerBirthDay}"></p>
+        </div>
 
-            <input th:field="*{id}" hidden>
-
-            <div class="form-group">
-                <label class="col-md-4 control-label ">Code</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input th:field="*{customerCode}" placeholder="Code" class="form-control" type="text">
-                    </div>
-                    <p th:errors="*{customerCode}"></p>
-                </div>
+        <div class="form-group">
+            <label>Gender:</label>
+            <div class="input-group">
+                <select th:field="*{customerGender}" class="form-control selectpicker"
+                        style="height: 35px; border-radius: 35px">
+                    <option value="1">Male</option>
+                    <option value="0">FeMale</option>
+                    <option value="2">Other</option>
+                </select>
             </div>
-            <div class="form-group">
-                <label class="col-md-4 control-label ">Name</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input th:field="*{customerName}" placeholder="Name" class="form-control" type="text">
-                    </div>
-                    <p th:errors="*{customerName}"></p>
-                </div>
+            <p th:errors="*{customerGender}"></p>
+        </div>
+
+        <div class="form-group">
+            <label>Customer type:</label>
+            <div class="input-group">
+                <select th:field="*{customerType}" class="form-control selectpicker"
+                        style="height: 35px; border-radius: 35px">
+                    <option th:each="customerType : ${customerTypes}"
+                            th:value="${customerType.id}"
+                            th:text="${customerType.customerTypeName}">
+                    </option>
+                </select>
             </div>
+            <p th:errors="*{customerType}"></p>
+        </div>
 
+        <div class="form-group" style="margin-top: 10px">
+            <label>Address:</label>
+            <input th:field="*{customerAddress}" type="text" class="form-control item" id="address"
+                   placeholder="Address">
+            <p th:errors="*{customerAddress}"></p>
+        </div>
 
-            <div class="form-group">
-                <label class="col-md-4 control-label">Birthday</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input th:field="*{customerBirthDay}" placeholder="Birthday" class="form-control" type="date">
-                    </div>
-                    <p th:errors="*{customerBirthDay}"></p>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Id Card</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input th:field="*{customerIdCard}" class="form-control" type="number">
-                    </div>
-                    <p th:errors="*{customerIdCard}"></p>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Gender</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-heart"></i></span>
-                        <select th:field="*{customerGender}" class="form-control selectpicker">
-                            <option value="1">Male</option>
-                            <option value="0">FeMale</option>
-                            <option value="2">Other</option>
-                        </select>
-                    </div>
-                    <p th:errors="*{customerGender}"></p>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Phone Number</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                        <input th:field="*{customerPhone}" placeholder="(84)" class="form-control" type="number">
-                    </div>
-                    <p th:errors="*{customerPhone}"></p>
-                </div>
-            </div>
-
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">E-Mail</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input th:field="*{customerEmail}" placeholder="E-Mail Address" class="form-control"
-                               type="email">
-                    </div>
-                    <p th:errors="*{customerEmail}"></p>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-4 control-label ">Address</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <input th:field="*{customerAddress}" placeholder="Address" class="form-control" type="text">
-                    </div>
-                    <p th:errors="*{customerAddress}"></p>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-warning" style="margin-left: 497px"><span class="glyphicon glyphicon-send"></span>Submit</button>
-        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-block create-account">Update Customer</button>
+        </div>
     </form>
+    <div class="social-media">
+        <h5>Sign up with social media</h5>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/page.ngoctrinh"><i class="icon-social-facebook" title="Facebook"></i></a>
+            <a href="#"><i class="icon-social-google" title="Google"></i></a>
+            <a href="#"><i class="icon-social-twitter" title="Twitter"></i></a>
+        </div>
+    </div>
 </div>
-</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="../assets/js/script.js"></script>
 </body>
 </html>

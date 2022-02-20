@@ -121,7 +121,7 @@ public class EmployeeController {
             return modelAndView;
         } else {
             employeeService.save(employee);
-            ModelAndView modelAndView = new ModelAndView("/employee/edit");
+            ModelAndView modelAndView = new ModelAndView("employee/edit");
             modelAndView.addObject("employee", employee);
             modelAndView.addObject("message", "Update employee successfully");
             return modelAndView;

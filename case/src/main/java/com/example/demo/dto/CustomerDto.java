@@ -11,25 +11,34 @@ import javax.validation.constraints.Pattern;
 
 public class CustomerDto {
     private Integer id;
+
     @NotBlank
-//    @UniqueElements
-    @Pattern(regexp ="^(KH-)[0-9]{4}$", message = "Pls input code correct format. Ex : KH-XXXX")
+    @Pattern(regexp ="^(KH-)[0-9]{4}$", message = "Customer code must be correct with format: KH-XXXX")
     private String customerCode;
+
     private CustomerType customerType;
-    @NotNull(message = "input not null")
+
+    @NotNull(message = "input must not null.")
     @NotBlank
     private String customerName;
-    @NotNull(message = "input not null")
+
+    @NotNull(message = "input must not null.")
     private String customerBirthDay;
+
     private String customerGender;
-    @Pattern(regexp = "^[0-9]{10}", message = " pls input correct format !")
+
+    @Pattern(regexp = "^\\d{9,10}$", message = "Enter incorrect format.")
     private String customerIdCard;
+
     @NotNull
-    @Pattern(regexp = "^[0-9]{10}")
+    @Pattern(regexp = "^(84+|0)(90|91)[0-9]{7}$")
     private String customerPhone;
-    @NotBlank(message = "pls input email")
-    @Email(message = "Pls input correct format")
+
+    @NotBlank(message = "Please input email.")
+    @Email(message = "Enter Incorrect format.")
+//    @Pattern(regexp = "^[A-Za-z0-9._]+[@][A-Za-z0-9._]+[.][A-Za-z0-9._]+$")
     private String customerEmail;
+
     private String customerAddress;
 
 
@@ -142,12 +151,5 @@ public class CustomerDto {
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
     }
-//    @Override
-//    public void validate(Object target, Errors errors) {
-//        CustomerDto customerDto= (CustomerDto) target;
-//        if (customerDto.email.equals("")){
-//            errors.rejectValue("email","email.valid");
-//        }
-//
-//    }
+
 }

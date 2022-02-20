@@ -15,7 +15,7 @@ public class EmployeeDto {
     @NotBlank
     private  String employeeBirthday;
     @NotNull(message = "input not null")
-    @Min(value = 0,message = "pls input value >0")
+    @Min(value = 0,message = "Enter value >0")
     private String employeeIdCard;
     private Double employeeSalary;
     @NotNull
