@@ -13,6 +13,12 @@ public class EmployeeService implements IEmployeeService {
     @Autowired
     IEmployeeRepository employeeRepository;
 
+
+    @Override
+    public Iterable<Employee> findAll() {
+        return employeeRepository.findAll();
+    }
+
     @Override
     public Page<Employee> findAll(Pageable page) {
         return employeeRepository.findAll(page);
@@ -20,6 +26,7 @@ public class EmployeeService implements IEmployeeService {
 
     @Override
     public void save(Employee employee) {
+        employee.setFlag("1");
         employeeRepository.save(employee);
     }
 
@@ -29,8 +36,9 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public void delete(Integer id) {
-        employeeRepository.deleteById(id);
+    public void delete(Employee employee) {
+        employee.setFlag("0");
+        employeeRepository.save(employee);
     }
 
     @Override

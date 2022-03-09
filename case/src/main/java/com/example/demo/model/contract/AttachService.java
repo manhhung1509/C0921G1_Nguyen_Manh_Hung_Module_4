@@ -19,25 +19,6 @@ public class AttachService {
     public AttachService() {
     }
 
-    public AttachService(Integer id, String attachServiceName, double attachServiceCost, int attachServiceUnit,
-                         String attachServiceStatus, List<ContractDetail> contractDetails) {
-        this.id = id;
-        this.attachServiceName = attachServiceName;
-        this.attachServiceCost = attachServiceCost;
-        this.attachServiceUnit = attachServiceUnit;
-        this.attachServiceStatus = attachServiceStatus;
-        this.contractDetails = contractDetails;
-    }
-
-    public AttachService(String attachServiceName, double attachServiceCost, int attachServiceUnit, String attachServiceStatus,
-                         List<ContractDetail> contractDetails) {
-        this.attachServiceName = attachServiceName;
-        this.attachServiceCost = attachServiceCost;
-        this.attachServiceUnit = attachServiceUnit;
-        this.attachServiceStatus = attachServiceStatus;
-        this.contractDetails = contractDetails;
-    }
-
     public Integer getId() {
         return id;
     }

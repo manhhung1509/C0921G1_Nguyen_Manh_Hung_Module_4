@@ -17,17 +17,6 @@ public class ServiceType {
     public ServiceType() {
     }
 
-    public ServiceType(Integer id, String serviceTypeName, List<Services> services) {
-        this.id = id;
-        this.serviceTypeName = serviceTypeName;
-        this.services = services;
-    }
-
-    public ServiceType(String serviceTypeName, List<Services> services) {
-        this.serviceTypeName = serviceTypeName;
-        this.services = services;
-    }
-
     public Integer getId() {
         return id;
     }

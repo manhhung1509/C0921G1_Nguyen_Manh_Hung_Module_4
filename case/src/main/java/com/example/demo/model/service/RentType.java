@@ -17,19 +17,6 @@ public class RentType {
     public RentType() {
     }
 
-    public RentType(String rentTypeName, double rentTypeCost, List<Services> services) {
-        this.rentTypeName = rentTypeName;
-        this.rentTypeCost = rentTypeCost;
-        this.services = services;
-    }
-
-    public RentType(Integer id, String rentTypeName, double rentTypeCost, List<Services> services) {
-        this.id = id;
-        this.rentTypeName = rentTypeName;
-        this.rentTypeCost = rentTypeCost;
-        this.services = services;
-    }
-
     public Integer getId() {
         return id;
     }

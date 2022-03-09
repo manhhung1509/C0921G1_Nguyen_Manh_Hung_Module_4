@@ -15,6 +15,11 @@ public class ServiceService implements IServiceService {
 
 
     @Override
+    public Iterable<Services> findAll() {
+        return serviceRepository.findAll();
+    }
+
+    @Override
     public Page<Services> findAll(Pageable page) {
         return serviceRepository.findAll(page);
     }

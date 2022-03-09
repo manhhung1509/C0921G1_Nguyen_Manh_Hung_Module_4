@@ -11,9 +11,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ICustomerRepository extends JpaRepository<Customer,Integer> {
 
+    @Query(value = "select * from customer where flag =1", nativeQuery = true)
+    Page<Customer> findAll(Pageable pageable);
+
     Customer findCustomerById(Integer id);
 
     @Query(value = "select * from customer where  customer_name like %?1% and customer_email like %?2% and customer_address like %?3% ",
             nativeQuery = true)
     Page<Customer> searchCustomer(String name, String email, String address, Pageable pageable);
+
+    Boolean existsByCustomerCode(String customerCode);
 }

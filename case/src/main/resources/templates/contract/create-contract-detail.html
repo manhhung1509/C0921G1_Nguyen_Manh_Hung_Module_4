@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Contract Detail</title>
+    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"-->
+    <!--          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">-->
+    <style>
+        span{
+            color: red ;
+        }
+    </style>
+</head>
+<body>
+<div >
+    <h1>Create Contract Detail</h1>
+    <button>
+        <a href="/home"> back to home</a>
+    </button>
+
+    <th:block th:if="${mes}">
+        <p th:text="${mes}"></p>
+    </th:block>
+    <form th:action="@{/contract-details/create-contract-detail}" th:object="${contractDetailDto}" method="post">
+        <table class="table table-bordered table-striped">
+
+<!--            <tr>-->
+<!--                <td>Quantity:</td>-->
+<!--                <td><input type="number" th:field="*{contract.id}" placeholder="Enter quantity"/></td>-->
+<!--                <td>-->
+<!--                    <span th:if="${#fields.hasErrors}" th:errors="*{quantity}"></span>-->
+<!--                </td>-->
+<!--            </tr>-->
+
+            <tr>
+                <td>Quantity:</td>
+                <td><input type="text" th:field="*{quantity}" placeholder="Enter quantity"/></td>
+                <td>
+                    <span th:if="${#fields.hasErrors}" th:errors="*{quantity}"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Attach Service :</td>
+                <td>
+                    <select th:field="*{attachService}">
+                        <option th:each="c : ${attachServices}" th:value="${c.id}"
+                                th:text="${c.attachServiceName}"></option>
+                    </select>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td> Contract Id :</td>
+                <td>
+                    <select th:field="*{contract}">
+                        <option th:each="c : ${contracts}" th:value="${c.id}"
+                                th:text="${c.id}"></option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Create Contract detail"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

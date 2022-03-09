@@ -20,12 +20,13 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("/customer")
 public class CustomerController {
     @Autowired
-    ICustomerService customerService;
+    private ICustomerService customerService;
 
     @Autowired
-    ICustomerTypeService customerTypeService;
+    private ICustomerTypeService customerTypeService;
 
     @ModelAttribute(value = "customerTypes")
     public List<CustomerType> customerTypes() {
@@ -37,17 +38,25 @@ public class CustomerController {
                                      @RequestParam("email") Optional<String> email,
                                      @RequestParam("address") Optional<String> address,
                                      @PageableDefault(value = 4) Pageable pageable) {
+
         ModelAndView  modelAndView = new ModelAndView("customer/list");
-        Page<Customer> customers;
+        Page<Customer> customers ;
 
         if (!customerName.isPresent() && !email.isPresent() && !address.isPresent()){
-            modelAndView.addObject("customers", customerService.findAll(pageable));
+            customers = customerService.findAll(pageable);
+            modelAndView.addObject("customers", customers);
+            if (pageable.getPageNumber() > customers.getTotalPages()){
+                return new ModelAndView("/error_404");
+            }
         }else {
             customers  = customerService.searchCustomerContaining(customerName.orElse(""), email.orElse(""),address.orElse(""),pageable);
             modelAndView.addObject("customers",customers);
             modelAndView.addObject("customerName",customerName.orElse(""));
             modelAndView.addObject("email",email.orElse(""));
             modelAndView.addObject("address",address.orElse(""));
+            if (pageable.getPageNumber() > customers.getTotalPages()){
+                return new ModelAndView("/error_404");
+            }
         }
         return modelAndView;
     }
@@ -62,13 +71,16 @@ public class CustomerController {
 
     @PostMapping(value = "/create-customer")
     public ModelAndView saveCustomer(@Validated @ModelAttribute CustomerDto customerDto, BindingResult bindingResult) {
-        Customer customer = new Customer();
-        BeanUtils.copyProperties(customerDto, customer);
+        if (customerService.checkCustomerCodeExits(customerDto.getCustomerCode())) {
+            bindingResult.rejectValue("customerCode", "customerCode", "Customer code was exits. Enter again!");
+        }
         if (bindingResult.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("customer/create");
             modelAndView.addAllObjects(bindingResult.getModel());
             return modelAndView;
         } else {
+            Customer customer = new Customer();
+            BeanUtils.copyProperties(customerDto, customer);
             customerService.save(customer);
             ModelAndView modelAndView = new ModelAndView("/customer/create");
             modelAndView.addObject("customer", customer);
@@ -117,7 +129,8 @@ public class CustomerController {
 
     @PostMapping(value = {"/delete-customer/{id}"})
     public ModelAndView DeleteCustomer(@PathVariable Integer id, @PageableDefault(value = 4) Pageable pageable) {
-        customerService.delete(id);
+        Customer customer = customerService.findCustomerById(id);
+        customerService.delete(customer);
         Page<Customer> customers;
         ModelAndView modelAndView = new ModelAndView("customer/list_copy");
         modelAndView.addObject("customers", customerService.findAll(pageable));

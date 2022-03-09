@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>List Customers </title>
+    <link rel="stylesheet" href="/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light row d-flex" style="background-color: #272882;height: 120px">
+    <div class="col-lg-3">
+        <img src="https://codegym.vn/wp-content/uploads/2021/08/CodeGym-Logo.webp" width="290" height="50" alt="CodeGym" id="logo" data-height-percentage="70" data-actual-width="1263.33" data-actual-height="217.812">
+    </div>
+    <div class="col-lg-5"></div>
+    <div class="col-lg-4"></div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light row d-flex" style=" height: 85px;background: #e1dedc;margin-bottom: 62px">
+    <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+        <div class="navbar-nav col-lg-9">
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link active" href="/translate/translates">Home <span class="sr-only">(current)</span></a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="#">Employee</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="#">Customer</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="#">Service</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="#">Contract Detail</a>
+        </div>
+        <div class="navbar-nav col-lg-3">
+            <form class="form-inline my-2 my-lg-0" action="/searchInHome">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="homeSearch">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<form class="d-flex col-12" action="/translate/translates" method="get">
+    <input class="form-control" name="customerName" type="search" placeholder="Customer Name" th:value="${customerName}">
+    <select name="serviceType">
+        <option disabled selected>Choose category</option>
+        <th:block th:each="serviceType: ${serviceTypes}">
+            <option th:value="${serviceType.serviceTypeName}" th:text="${serviceType.serviceTypeName}"></option>
+        </th:block>
+    </select>
+    <input class="btn btn-light" type="submit" value="Search">
+    <a href="/translate/create-translate" style="font-size: 20px;color: #3f48eb; " class="justify-content-end">
+        <button type="button"
+                style="background: #14ce14;font-size: 17px;height: 39px;margin-top: 3px;border-radius: 6px;border: none; width: 169px;margin-left: 341px">
+            Create Translate <span><i class="fas fa-user-plus" style="color: red"></i></span>
+        </button>
+    </a>
+</form>
+
+<div id="searchTable">
+    <table class="table table-bordered table-striped ">
+        <tr>
+            <td>NO</td>
+            <td>Translate Code</td>
+            <td>Customer Name</td>
+            <td>Translate Date</td>
+            <td>Service Type</td>
+            <td>Unit</td>
+            <td>Area</td>
+            <td>Action</td>
+        </tr>
+
+        <th:block th:each="translate ,loop : ${translates}">
+            <tr>
+
+                <td th:text="${loop.count}"></td>
+                <td th:text="${translate.translateCode}"></td>
+                <td th:text="${translate.customer.customerName}"></td>
+                <td th:text="${translate.translateDate}"></td>
+                <td th:text="${translate.serviceType.serviceTypeName}"></td>
+                <td th:text="${translate.until}"></td>
+                <td th:text="${translate.area}"></td>
+                <td>
+                    <button type="button" class="btn btn-danger" id="btnModalDelete"
+                            th:onclick="'javascript:showDelete(\''+${translate.id}+'\');'">Detail
+                    </button>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+
+<!--modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!--                ...-->
+            </div>
+            <div class="modal-footer">
+                <!--           ...-->
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    function showDelete(id) {
+        $.ajax({
+            type: "GET",
+            url: "/translate/delete-translate/" + id,
+            dataType: "HTML",
+            success: function (data) {
+                console.log(data);
+                $(".modal-body").html(data);
+                $("#exampleModal").modal("show");
+            },
+            error: function (data) {
+                window.location.href = "http://localhost:8080/403";
+            }
+        })
+    }
+
+    function actionDelete(id) {
+        $.ajax({
+            type: "POST",
+            url: "/translate/delete-translate/" + id,
+            dataType: "HTML",
+            success: function (data) {
+                let message = "Delete successfully!"
+                setTimeout(function () {
+                    $("#exampleModal").modal("hide");
+                }, 2000)
+                $("#searchTable").html(data);
+                $(".modal-body").html(message);
+            }
+        })
+    }
+</script>
+</html>

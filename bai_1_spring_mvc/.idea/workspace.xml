@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d58f7f94-4523-4a15-b583-bb2d3f1d0b22" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../[Module_4]_bai_14_spring_security/spring_security" beforeDir="false" afterPath="$PROJECT_DIR$/../[Module_4]_bai_14_spring_security/spring_security" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/dictionary/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/dictionary/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bai_tap/tien_te/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bai_tap/tien_te/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thuc_hanh/bai_1/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/thuc_hanh/bai_1/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thuc_hanh/bai_2/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/thuc_hanh/bai_2/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thuc_hanh/bai_2/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/thuc_hanh/bai_2/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_2_spring_controller/thuc_hanh/bai_3_customer_manager/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_7_repository/thuc_hanh/province-manager/spring-customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_7_repository/thuc_hanh/province-manager/spring-customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ExceptionHandler/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ExceptionHandler/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ghi_Log/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../bai_9_aop_va_exceptionhandling/thuc_hanh/ghi_Log/customer-management" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../case/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/config/WebSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/controller/EmployeeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/controller/EmployeeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/controller/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/controller/ServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/dto/ContractDetailDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/dto/ContractDetailDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/dto/ContractDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/dto/ContractDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/dto/CustomerDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/dto/CustomerDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/dto/EmployeeDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/dto/EmployeeDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/dto/ServiceDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/dto/ServiceDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/contract/AttachService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/contract/AttachService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/contract/Contract.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/contract/Contract.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/contract/ContractDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/contract/ContractDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/customer/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/customer/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/customer/CustomerType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/customer/CustomerType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/employee/Division.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/employee/Division.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/employee/EducationDegree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/employee/EducationDegree.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/employee/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/employee/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/employee/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/employee/Position.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/service/RentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/service/RentType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/service/ServiceType.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/service/ServiceType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/service/Services.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/service/Services.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/user/MyUserDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/user/MyUserDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/user/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/user/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/model/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/repository/user/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/repository/contract/IContractRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/repository/contract/IContractRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/repository/customer/ICustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/repository/customer/ICustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/repository/employee/IEmployeeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/repository/employee/IEmployeeRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/customer/ICustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/customer/ICustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/customer/impl/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/customer/impl/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/employee/IEmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/employee/IEmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/employee/impl/EmployeeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/employee/impl/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/service/IServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/service/IServiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/service/impl/ServiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/service/impl/ServiceService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/user/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/user/impl/MyUserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/java/com/example/demo/service/user/impl/MyUserDetailServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/contract/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/contract/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/contract/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/contract/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/contract/list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/contract/list_copy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/contract/table_delete.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/customer/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/customer/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/customer/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/customer/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/customer/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/customer/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/customer/list_copy.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/customer/list_copy.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/employee/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/employee/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/employee/edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/employee/edit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/employee/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/employee/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/error_404.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/error_404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/login/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/login/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/service/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/service/create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../case/src/main/resources/templates/service/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/../case/src/main/resources/templates/service/list.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$/bai_tap/dictionary">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/bai_tap/tien_te">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/thuc_hanh/bai_1">
+      <ProjectState />
+    </projectState>
+    <projectState path="$PROJECT_DIR$/thuc_hanh/bai_2">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="25aqT5tXEcPTKemVxu7TLe3kjgQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../case" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d58f7f94-4523-4a15-b583-bb2d3f1d0b22" name="Default Changelist" comment="" />
+      <created>1645775549896</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1645775549896</updated>
+      <workItem from="1645775551532" duration="1066000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="421" y="82" key="FileChooserDialogImpl" timestamp="1645776625437">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="421" y="82" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1645776625437" />
+  </component>
+</project>

@@ -10,33 +10,33 @@ import javax.validation.constraints.Pattern;
 
 public class ServiceDto {
     private  Integer id;
-    @NotNull(message = "input not null")
+    @NotNull(message = "input must not null.")
     @NotBlank
     private  String serviceName;
-    @Pattern(regexp = "^(DV-)[0-9]{4}$",message = "Ex:DV-1111")
-    @NotNull(message = "pls input not null")
+    @Pattern(regexp = "^(DV-)[0-9]{4}$",message = "Input is not matched with format: DV-1111.")
+    @NotNull(message = "please input not null.")
     private  String serviceCode;
 
-    @NotNull(message = "input not null")
-    @Min(value = 0,message = "pls input value >0")
+    @NotNull(message = "input must not null.")
+    @Min(value = 0,message = "service area must be big more than 0")
     private int serviceArea;
 
-    @NotNull(message = "input not null")
-    @Min(value = 0,message = "pls input value >0")
+    @NotNull(message = "input must not null.")
+    @Min(value = 0,message = "Service cost must be more than 0.")
     private double serviceCost;
 
-    @NotNull(message = "input not null")
-    @Min(value = 0,message = "pls input value >0")
+    @NotNull(message = "input must not null.")
+    @Min(value = 0,message = "Maximum people must be big more than 0.")
     private int serviceMaxPeople;
     private String standardRoom;
     private String descriptionOtherConvenience;
 
-    @NotNull(message = "input not null")
-    @Min(value = 0,message = "pls input value >0")
+    @NotNull(message = "input must not null.")
+    @Min(value = 0,message = "Pool area must be big more than 0.")
     private  double poolArea;
 
-    @NotNull(message = "input not null")
-    @Min(value = 0,message = "pls input value >0")
+    @NotNull(message = "input must not null.")
+    @Min(value = 0,message = "Number of floors must be big more than 0.")
     private int numberOfFloors;
     private ServiceType serviceType;
     private RentType rentType;

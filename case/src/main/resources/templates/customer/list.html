@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>List Customers </title>
-    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -11,32 +12,62 @@
             crossorigin="anonymous"></script>
 
 </head>
-
 <body>
-<div class="row">
+<nav class="navbar navbar-expand-lg navbar-light row d-flex" style="background-color: #272882;height: 120px">
     <div class="col-lg-3">
-        <a href="/home">
-            <button type="button" class="btn btn-warning" style="font-size: 17px; margin-bottom: -17px; height: 39px;">
-                <span><i class="fas fa-chevron-circle-left"></i></span> Back to Home
-            </button>
-        </a>
+        <img src="https://codegym.vn/wp-content/uploads/2021/08/CodeGym-Logo.webp" width="290" height="50" alt="CodeGym" id="logo" data-height-percentage="70" data-actual-width="1263.33" data-actual-height="217.812">
     </div>
-    <div class="col-lg-6">
-        <h1 style="text-align: center;margin-top:41px; margin-bottom: 42px; color: green">Customer</h1>
+    <div class="col-lg-5"></div>
+    <div class="col-lg-4 d-flex justify-content-end align-self-sm-start">
+        <th:block sec:authorize="isAuthenticated() == false">
+            <a href="/login"><button type="button" class="btn btn-success" style="width: 80px">Login</button></a>
+        </th:block>
+
+        <th:block sec:authorize="isAuthenticated()">
+            <a href="https://www.facebook.com/page.ngoctrinh" sec:authentication="principal.employeeName" style="color: white;font-size: 20px;font-family: cursive;padding-top: 4px;padding-right: 8px"></a>
+            <a href="/logout"><button type="button" class="btn btn-success">Logout</button></a>
+        </th:block>
     </div>
-    <div class="col-lg-3">
-       <a href="/create-customer" style="font-size: 20px;color: #3f48eb; padding-left: 99px">
-            <button type="button" style="background: #14ce14;font-size: 17px;height: 39px;margin-top: 3px;border-radius: 6px;border: none">
-                Create Customer <span><i class="fas fa-user-plus" style="color: red"></i></span>
-            </button>
-       </a>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light row d-flex" style=" height: 85px;background: #e1dedc;margin-bottom: 62px">
+    <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+        <div class="navbar-nav col-lg-9">
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="/employee/employees">Employee</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="/customer/customers">Customer</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="/service/services">Service</a>
+            <div class="dropdown">
+                <button style="font-size: 25px; margin-top: 2px;padding-left: 37px;padding-right: -27px;background: #e1dedc;border: none; color: #706f6e;"
+                        class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Contract
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background: #e1dedc">
+                    <a href="/contract/create-contract"> <button class="dropdown-item" type="button">Create Contract</button></a>
+                    <a href="/contract-details/create-contract-detail"><button class="dropdown-item" type="button">Create Contract Detail</button></a>
+                </div>
+            </div>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="/contract-details/create-contract-detail">Contract Detail</a>
+        </div>
+        <div class="navbar-nav col-lg-3">
+            <form class="form-inline my-2 my-lg-0" action="/searchInHome">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="homeSearch">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
     </div>
-</div>
-<form class="d-flex col-6" action="/customers" method="get">
+</nav>
+
+<form class="d-flex col-12" action="/customer/customers" method="get">
     <input class="form-control" name="customerName" type="search" placeholder="name">
     <input class="form-control" name="email" type="search" placeholder="email">
     <input class="form-control" name="address" type="search" placeholder="address">
     <input class="btn btn-light" type="submit" value="Search">
+    <a href="/customer/create-customer" style="font-size: 20px;color: #3f48eb; " class="justify-content-end">
+        <button type="button"
+                style="background: #14ce14;font-size: 17px;height: 39px;margin-top: 3px;border-radius: 6px;border: none; width: 169px;margin-left: 341px">
+            Create Customer <span><i class="fas fa-user-plus" style="color: red"></i></span>
+        </button>
+    </a>
 </form>
 
 <div id="searchTable">
@@ -73,8 +104,8 @@
                 <td th:text="${customer.customerEmail}"></td>
                 <td th:text="${customer.customerAddress}"></td>
                 <td>
-                    <a th:href="@{/edit-customer/__${customer.id}__}">
-                        <button type="button" class="btn btn-warning" >Edit</button>
+                    <a th:href="@{/customer/edit-customer/__${customer.id}__}">
+                        <button type="button" class="btn btn-warning">Edit</button>
                     </a>
                 </td>
                 <td>
@@ -106,21 +137,37 @@
         </div>
     </div>
 </div>
-<!--phan trang-->
-<div>
-    <a th:href="@{'/customers'(page=${customers.number - 1}, customerName=${customerName}, email = ${email}, adrress = ${address})}"
-       th:if="${customers.hasPrevious()}">Previous</a>
-    <span th:text="${customers.number + 1}"></span>/<span th:text="${customers.totalPages}"></span>
-    <a th:href="@{'/customers'(page=${customers.number + 1}, customerName=${customerName}, email = ${email}, adrress = ${address})}"
-       th:if="${customers.hasNext()}">Next</a>
-</div>
 
-<!--nhay trang-->
-<div>
-    <span th:each="pageNo:${#numbers.sequence(0,customers.totalPages - 1)}">
-            <a th:href="@{/customers(page=${pageNo})}" th:text="${pageNo+1}"></a>
-        </span>
-</div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end page_border">
+
+        <li class="page-item  " th:if="${customers.hasPrevious()}">
+            <a class="page-link page_hover" th:href="@{'/customer/customers'(page=${customers.number - 1}, customerName=${customerName},
+                                         email = ${email}, adrress = ${address})}" tabindex="-1"
+               aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item disabled page_dis" th:unless="${customers.hasPrevious()}">
+            <a class="page-link " href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item page_list">
+            <div class="page-link ">
+                <span th:text="${customers.number+1}"></span> of
+                <span th:text="${customers.totalPages}"></span>
+            </div>
+
+        </li>
+        <li class="page-item" th:if="${customers.hasNext()}">
+            <a class="page-link page_hover " th:href="@{'/customer/customers'(page=${customers.number + 1}, customerName=${customerName},
+                                         email = ${email}, adrress = ${address})}" tabindex="-1"
+               aria-disabled="true">Next</a>
+        </li>
+        <li class="page-item disabled page_dis" th:unless="${customers.hasNext()}">
+            <a class="page-link  " href="#" tabindex="-1" aria-disabled="true">Next</a>
+        </li>
+    </ul>
+
+</nav>
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -134,12 +181,15 @@
     function showDelete(id) {
         $.ajax({
             type: "GET",
-            url: "/delete-customer/" + id,
+            url: "/customer/delete-customer/" + id,
             dataType: "HTML",
             success: function (data) {
                 console.log(data);
                 $(".modal-body").html(data);
                 $("#exampleModal").modal("show");
+            },
+            error: function (data) {
+                window.location.href = "http://localhost:8080/403";
             }
         })
     }
@@ -147,7 +197,7 @@
     function actionDelete(id) {
         $.ajax({
             type: "POST",
-            url: "/delete-customer/" + id,
+            url: "/customer/delete-customer/" + id,
             dataType: "HTML",
             success: function (data) {
                 let message = "Delete successfully!"

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link rel="stylesheet" href="bootstrap413/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap4.min.css"/>
+    <link rel="stylesheet" href="/static/bootstrap413/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/datatables/css/dataTables.bootstrap4.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.4.1/css/all.min.css"
+          integrity="sha512-/RUbtHakVMJrg1ILtwvDIceb/cDkk97rWKvfnFSTOmNbytCyEylutDqeEr9adIBye3suD3RfcsXLOLBqYRW4gw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -16,29 +18,48 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body style="width: 100%; overflow-x: hidden;">
+<!--<th:block th:if="${#request.userPrincipal==null}">-->
+<!--    <a href="/login"> <button> Login </button></a>-->
+<!--</th:block>-->
+
+<!--<th:block th:if="${#request.userPrincipal!=null}">-->
+<!--    <span th:text="${#request.userPrincipal.name}"></span>-->
+<!--    <a href="/logout"> <button> Logout</button></a>-->
+<!--</th:block>-->
 <nav class="navbar navbar-expand-lg navbar-light row d-flex" style="background-color: #272882;height: 120px">
     <div class="col-lg-3">
         <img src="https://codegym.vn/wp-content/uploads/2021/08/CodeGym-Logo.webp" width="290" height="50" alt="CodeGym" id="logo" data-height-percentage="70" data-actual-width="1263.33" data-actual-height="217.812">
     </div>
     <div class="col-lg-5"></div>
-    <div class="col-lg-4 d-flex">
-        <a style="color: white; font-size: 20px; padding-left: 154px; padding-top: 4px" href="https://www.facebook.com/page.ngoctrinh">Nguyễn Mạnh Hùng</a>
-        <div class="avatar avatar-online current pl-3">
-            <a href="https://www.facebook.com/page.ngoctrinh">
-                <img src="photo/avtnt.jpg" alt="..." style="width: 35px; height: 35px; border-radius: 20px; margin-bottom: 9px; margin-right: 3px">
-            </a>
-        </div>
+    <div class="col-lg-4 d-flex justify-content-end align-self-sm-start">
+        <th:block sec:authorize="isAuthenticated() == false">
+            <a href="/login"><button type="button" class="btn btn-success" style="width: 80px">Login</button></a>
+        </th:block>
+
+        <th:block sec:authorize="isAuthenticated()">
+            <a href="https://www.facebook.com/page.ngoctrinh" sec:authentication="principal.employeeName" style="color: white;font-size: 20px;font-family: cursive;padding-top: 4px;padding-right: 8px"></a>
+            <a href="/logout"><button type="button" class="btn btn-success">Logout</button></a>
+        </th:block>
     </div>
 </nav>
 <nav class="navbar navbar-expand-lg navbar-light row d-flex" style=" height: 85px;background: #e1dedc">
     <div class="collapse navbar-collapse row" id="navbarSupportedContent">
         <div class="navbar-nav col-lg-9">
             <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
-            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="/employees">Employee</a>
-            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="/customers">Customer</a>
-            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="/services">Service</a>
-            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="/contracts">Contract</a>
-            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="/customerUsingServlet?action=showList">Customer current</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="/employee/employees">Employee</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="/customer/customers">Customer</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="/service/services">Service</a>
+            <div class="dropdown">
+                <button style="font-size: 25px; margin-top: 2px;padding-left: 37px;padding-right: -27px;background: #e1dedc;border: none; color: #706f6e;"
+                        class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Contract
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background: #e1dedc">
+                    <a href="/contract/create-contract"> <button class="dropdown-item" type="button">Create Contract</button></a>
+                    <a href="/contract-details/create-contract-detail"><button class="dropdown-item" type="button">Create Contract Detail</button></a>
+                </div>
+            </div>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="/contract-details/create-contract-detail">Contract Detail</a>
         </div>
         <div class="navbar-nav col-lg-3">
             <form class="form-inline my-2 my-lg-0" action="/searchInHome">

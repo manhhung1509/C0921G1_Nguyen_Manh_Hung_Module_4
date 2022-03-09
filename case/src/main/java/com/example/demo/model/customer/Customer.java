@@ -1,6 +1,9 @@
 package com.example.demo.model.customer;
 
+import com.example.demo.model.contract.Contract;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -8,7 +11,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String customerCode;
-    @ManyToOne(targetEntity = CustomerType.class)
+    @ManyToOne()
     @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
     private CustomerType customerType;
     private String customerName;
@@ -18,44 +21,27 @@ public class Customer {
     private String customerPhone;
     private String customerEmail;
     private String customerAddress;
-    private boolean flag;
+    @OneToMany(targetEntity = Contract.class)
+    private List<Contract> contract;
+    private String flag;
 
-    public boolean isFlag() {
+    public String isFlag() {
         return flag;
     }
 
-    public void setFlag(boolean flag) {
+    public void setFlag(String flag) {
         this.flag = flag;
     }
 
     public Customer() {
     }
 
-    public Customer(String customerCode, CustomerType customerType, String customerName, String customerBirthDay,
-                    String customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
-        this.customerCode = customerCode;
-        this.customerType = customerType;
-        this.customerName = customerName;
-        this.customerBirthDay = customerBirthDay;
-        this.customerGender = customerGender;
-        this.customerIdCard = customerIdCard;
-        this.customerPhone = customerPhone;
-        this.customerEmail = customerEmail;
-        this.customerAddress = customerAddress;
+    public List<Contract> getContract() {
+        return contract;
     }
 
-    public Customer(Integer id, String customerCode, CustomerType customerType, String customerName, String customerBirthDay, String customerGender,
-                    String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
-        this.id = id;
-        this.customerCode = customerCode;
-        this.customerType = customerType;
-        this.customerName = customerName;
-        this.customerBirthDay = customerBirthDay;
-        this.customerGender = customerGender;
-        this.customerIdCard = customerIdCard;
-        this.customerPhone = customerPhone;
-        this.customerEmail = customerEmail;
-        this.customerAddress = customerAddress;
+    public void setContract(List<Contract> contract) {
+        this.contract = contract;
     }
 
     public Integer getId() {

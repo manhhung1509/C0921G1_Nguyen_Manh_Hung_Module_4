@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface IEmployeeRepository extends JpaRepository<Employee, Integer> {
+    @Query(value = "select * from employee where flag =1", nativeQuery = true)
+    Page<Employee> findAll(Pageable pageable);
 
     Employee findEmployeeById(Integer id);
 

@@ -16,17 +16,6 @@ public class EducationDegree {
     public EducationDegree() {
     }
 
-    public EducationDegree(Integer id, String educationDegreeName, List<Employee> employees) {
-        this.id = id;
-        this.educationDegreeName = educationDegreeName;
-        this.employees = employees;
-    }
-
-    public EducationDegree(String educationDegreeName, List<Employee> employees) {
-        this.educationDegreeName = educationDegreeName;
-        this.employees = employees;
-    }
-
     public Integer getId() {
         return id;
     }

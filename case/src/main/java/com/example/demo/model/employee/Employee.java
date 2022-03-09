@@ -1,9 +1,9 @@
 package com.example.demo.model.employee;
 
-
-
+import com.example.demo.model.user.User;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Employee {
@@ -11,79 +11,45 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String employeeName;
-    private String employeeBirthday;
+    private Date employeeBirthday;
     private String employeeIdCard;
     private Double employeeSalary;
     private String employeePhone;
     private String employeeEmail;
     private String employeeAddress;
-    @ManyToOne(targetEntity = Position.class)
+    @OneToOne(mappedBy = "employee")
+    private User user;
+
+    @ManyToOne()
     @JoinColumn(name = "position_id", referencedColumnName = "id")
     private Position position;
 
-    @ManyToOne(targetEntity = EducationDegree.class)
+    @ManyToOne()
     @JoinColumn(name = "education_degree_id", referencedColumnName = "id")
     private EducationDegree educationDegree;
 
-    @ManyToOne(targetEntity = Division.class)
+    @ManyToOne()
     @JoinColumn(name = "division_id", referencedColumnName = "id")
     private Division division;
+    private String flag;
 
-    //    @ManyToOne(targetEntity = AppUser.class)
-//    @JoinColumn(name = "user_name",referencedColumnName = "id")
-//    private  AppUser appUser;
-    private boolean flag;
-//
-//    public AppUser getAppUser() {
-//        return appUser;
-//    }
-//
-//    public void setAppUser(AppUser appUser) {
-//        this.appUser = appUser;
-//    }
+    public User getUser() {
+        return user;
+    }
 
-    public boolean isFlag() {
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getFlag() {
         return flag;
     }
 
-    public void setFlag(boolean flag) {
+    public void setFlag(String flag) {
         this.flag = flag;
     }
 
     public Employee() {
-    }
-
-    public Employee(String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary,
-                    String employeePhone, String employeeEmail, String employeeAddress, Position position,
-                    EducationDegree educationDegree, Division division, String userName) {
-        this.employeeName = employeeName;
-        this.employeeBirthday = employeeBirthday;
-        this.employeeIdCard = employeeIdCard;
-        this.employeeSalary = employeeSalary;
-        this.employeePhone = employeePhone;
-        this.employeeEmail = employeeEmail;
-        this.employeeAddress = employeeAddress;
-        this.position = position;
-        this.educationDegree = educationDegree;
-        this.division = division;
-//        this.userName = userName;
-    }
-
-    public Employee(Integer id, String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary,
-                    String employeePhone, String employeeEmail, String employeeAddress, Position position,
-                    EducationDegree educationDegree, Division division, String userName) {
-        this.id = id;
-        this.employeeName = employeeName;
-        this.employeeBirthday = employeeBirthday;
-        this.employeeIdCard = employeeIdCard;
-        this.employeeSalary = employeeSalary;
-        this.employeePhone = employeePhone;
-        this.employeeEmail = employeeEmail;
-        this.employeeAddress = employeeAddress;
-        this.position = position;
-        this.educationDegree = educationDegree;
-        this.division = division;
-//        this.userName = userName;
     }
 
     public Integer getId() {
@@ -102,11 +68,11 @@ public class Employee {
         this.employeeName = employeeName;
     }
 
-    public String getEmployeeBirthday() {
+    public Date getEmployeeBirthday() {
         return employeeBirthday;
     }
 
-    public void setEmployeeBirthday(String employeeBirthday) {
+    public void setEmployeeBirthday(Date employeeBirthday) {
         this.employeeBirthday = employeeBirthday;
     }
 

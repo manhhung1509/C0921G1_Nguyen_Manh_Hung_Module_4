@@ -16,46 +16,15 @@ public class Services {
     private String descriptionOtherConvenience;
     private  double poolArea;
     private int numberOfFloors;
-    @ManyToOne(targetEntity = ServiceType.class)
+    @ManyToOne()
     @JoinColumn(name = "service_type_id", referencedColumnName = "id")
     private  ServiceType serviceType;
 
-    @ManyToOne(targetEntity = RentType.class)
+    @ManyToOne()
     @JoinColumn(name = "rent_type_id",referencedColumnName = "id")
     private  RentType rentType;
 
     public Services() {
-    }
-
-    public Services(Integer id, String serviceName, String serviceCode, int serviceArea, double serviceCost, int serviceMaxPeople, String standardRoom,
-                    String descriptionOtherConvenience, double poolArea, int numberOfFloors, ServiceType serviceType, RentType rentType) {
-        this.id = id;
-        this.serviceName = serviceName;
-        this.serviceCode = serviceCode;
-        this.serviceArea = serviceArea;
-        this.serviceCost = serviceCost;
-        this.serviceMaxPeople = serviceMaxPeople;
-        this.standardRoom = standardRoom;
-        this.descriptionOtherConvenience = descriptionOtherConvenience;
-        this.poolArea = poolArea;
-        this.numberOfFloors = numberOfFloors;
-        this.serviceType = serviceType;
-        this.rentType = rentType;
-    }
-
-    public Services(String serviceName, String serviceCode, int serviceArea, double serviceCost, int serviceMaxPeople,
-                    String standardRoom, String descriptionOtherConvenience, double poolArea, int numberOfFloors, ServiceType serviceType, RentType rentType) {
-        this.serviceName = serviceName;
-        this.serviceCode = serviceCode;
-        this.serviceArea = serviceArea;
-        this.serviceCost = serviceCost;
-        this.serviceMaxPeople = serviceMaxPeople;
-        this.standardRoom = standardRoom;
-        this.descriptionOtherConvenience = descriptionOtherConvenience;
-        this.poolArea = poolArea;
-        this.numberOfFloors = numberOfFloors;
-        this.serviceType = serviceType;
-        this.rentType = rentType;
     }
 
     public Integer getId() {

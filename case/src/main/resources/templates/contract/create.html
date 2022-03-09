@@ -1,10 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create Contract</title>
+    <style>
+        span{
+            color: red ;
+        }
+    </style>
 </head>
 <body>
+<div >
+    <h1>Create Contract</h1>
+    <div>
+        <a href="/home"><button> back to Home</button></a>
+    </div>
 
+    <th:block th:if="${mes}">
+        <p th:text="${mes}"></p>
+        <form th:action="@{/form-email}" th:object="${contractDto}" method="get">
+            <input type="submit" value="Send Email.">
+            <table class="table table-bordered table-striped " hidden>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Send Email."></td>
+                </tr>
+                <tr>
+                    <td>Start day :</td>
+                    <td><input type="date" th:field="*{contractStartDay}" placeholder="Enter Start day"/></td>
+                    <td>
+                        <span th:if="${#fields.hasErrors('contractStartDay')}" th:errors="*{contractStartDay}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Contract End Day:</td>
+                    <td><input type="date" th:field="*{contractEndDay}" placeholder="Enter end day"/></td>
+                    <td>
+                        <span th:if="${#fields.hasErrors('contractEndDay')}" th:errors="*{contractEndDay}"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Deposit :</td>
+                    <td><input type="text" th:field="*{contractDeposit}" placeholder="Enter contract deposit"/></td>
+                    <td>
+                        <span th:if="${#fields.hasErrors('contractDeposit')}" th:errors="*{contractDeposit}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Contract Total:</td>
+                    <td><input type="text" th:field="*{contractTotal}" placeholder="Enter Total"/></td>
+                    <td>
+                        <span th:if="${#fields.hasErrors('contractTotal')}" th:errors="*{contractTotal}"></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> Customer Name:</td>
+                    <td>
+                        <select th:field="*{customer}">
+                            <option th:each="c : ${customers}" th:value="${c.id}"
+                                    th:text="${c.customerName}"></option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> Employee Name:</td>
+                    <td>
+                        <select th:field="*{employee}">
+                            <option th:each="c : ${employees}" th:value="${c.id}"
+                                    th:text="${c.employeeName}"></option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td> Service Name:</td>
+                    <td>
+                        <select th:field="*{service}">
+                            <option th:each="c : ${services}" th:value="${c.id}"
+                                    th:if="${!c.serviceName.equals('ROOM')}"
+                                    th:text="${c.serviceName}"></option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </th:block>
+
+
+    <form th:action="@{/contract/create-contract}" th:object="${contractDto}" method="post">
+        <table class="table table-bordered table-striped ">
+
+            <tr>
+                <td>Start day :</td>
+                <td><input type="date" th:field="*{contractStartDay}" placeholder="Enter Start day"/></td>
+                <td>
+                    <span th:if="${#fields.hasErrors('contractStartDay')}" th:errors="*{contractStartDay}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Contract End Day:</td>
+                <td><input type="date" th:field="*{contractEndDay}" placeholder="Enter end day"/></td>
+                <td>
+                    <span th:if="${#fields.hasErrors('contractEndDay')}" th:errors="*{contractEndDay}"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>Deposit :</td>
+                <td><input type="text" th:field="*{contractDeposit}" placeholder="Enter contract deposit"/></td>
+                <td>
+                    <span th:if="${#fields.hasErrors('contractDeposit')}" th:errors="*{contractDeposit}"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Contract Total:</td>
+                <td><input type="text" th:field="*{contractTotal}" placeholder="Enter Total"/></td>
+                <td>
+                    <span th:if="${#fields.hasErrors('contractTotal')}" th:errors="*{contractTotal}"></span>
+                </td>
+            </tr>
+
+            <tr>
+                <td> Customer Name:</td>
+                <td>
+                    <select th:field="*{customer}">
+                        <option th:each="c : ${customers}" th:value="${c.id}"
+                                th:text="${c.customerName}"></option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td> Employee Name:</td>
+                <td>
+                    <select th:field="*{employee}">
+                        <option th:each="c : ${employees}" th:value="${c.id}"
+                                th:text="${c.employeeName}"></option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td> Service Name:</td>
+                <td>
+                    <select th:field="*{service}">
+                        <option th:each="c : ${services}" th:value="${c.id}"
+                                th:if="${!c.serviceName.equals('ROOM')}"
+                                th:text="${c.serviceName}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Create Contract"></td>
+            </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>

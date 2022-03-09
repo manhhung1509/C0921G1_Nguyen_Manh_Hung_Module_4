@@ -1,75 +1,64 @@
 package com.example.demo.dto;
 
+import com.example.demo.model.contract.Contract;
 import com.example.demo.model.customer.CustomerType;
+import com.example.demo.repository.customer.ICustomerRepository;
+import com.example.demo.service.customer.ICustomerService;
+import com.example.demo.service.customer.impl.CustomerService;
 import org.hibernate.validator.constraints.UniqueElements;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.*;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import java.util.List;
 
 public class CustomerDto {
     private Integer id;
 
-    @NotBlank
-    @Pattern(regexp ="^(KH-)[0-9]{4}$", message = "Customer code must be correct with format: KH-XXXX")
+    @NotEmpty(message = "enter customer code")
+    @Pattern(regexp = "^(KH-)[0-9]{4}$", message = "Customer code must be correct with format: KH-XXXX")
     private String customerCode;
 
     private CustomerType customerType;
 
     @NotNull(message = "input must not null.")
-    @NotBlank
+    @NotBlank(message = "enter customer name")
     private String customerName;
 
+    @NotBlank(message = "Please enter customer birth day.")
     @NotNull(message = "input must not null.")
     private String customerBirthDay;
 
     private String customerGender;
 
-    @Pattern(regexp = "^\\d{9,10}$", message = "Enter incorrect format.")
+    @Pattern(regexp = "^\\d{9,12}$", message = "Enter number has 9 or 12 numbers.")
     private String customerIdCard;
 
-    @NotNull
-    @Pattern(regexp = "^(84+|0)(90|91)[0-9]{7}$")
+    @NotNull(message = "input must not null.")
+    @Pattern(regexp = "^(84+|0)(90|91)[0-9]{7}$", message = "phone number must matched with 090xxxxxxx or 091xxxxxxx or (84)+91xxxxxxx or (84)+90xxxxxxx")
     private String customerPhone;
 
     @NotBlank(message = "Please input email.")
-    @Email(message = "Enter Incorrect format.")
+    @Email(message = "Enter Incorrect format email")
 //    @Pattern(regexp = "^[A-Za-z0-9._]+[@][A-Za-z0-9._]+[.][A-Za-z0-9._]+$")
     private String customerEmail;
 
     private String customerAddress;
+    private List<Contract> contract;
+    private String flag;
 
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
 
     public CustomerDto() {
-    }
-
-    public CustomerDto(String customerCode, CustomerType customerType, String customerName, String customerBirthDay,
-                       String customerGender, String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
-        this.customerCode = customerCode;
-        this.customerType = customerType;
-        this.customerName = customerName;
-        this.customerBirthDay = customerBirthDay;
-        this.customerGender = customerGender;
-        this.customerIdCard = customerIdCard;
-        this.customerPhone = customerPhone;
-        this.customerEmail = customerEmail;
-        this.customerAddress = customerAddress;
-    }
-
-    public CustomerDto(Integer id, String customerCode, CustomerType customerType, String customerName, String customerBirthDay, String customerGender,
-                       String customerIdCard, String customerPhone, String customerEmail, String customerAddress) {
-        this.id = id;
-        this.customerCode = customerCode;
-        this.customerType = customerType;
-        this.customerName = customerName;
-        this.customerBirthDay = customerBirthDay;
-        this.customerGender = customerGender;
-        this.customerIdCard = customerIdCard;
-        this.customerPhone = customerPhone;
-        this.customerEmail = customerEmail;
-        this.customerAddress = customerAddress;
     }
 
     public Integer getId() {
@@ -151,5 +140,14 @@ public class CustomerDto {
     public void setCustomerAddress(String customerAddress) {
         this.customerAddress = customerAddress;
     }
+
+    public List<Contract> getContract() {
+        return contract;
+    }
+
+    public void setContract(List<Contract> contract) {
+        this.contract = contract;
+    }
+
 
 }

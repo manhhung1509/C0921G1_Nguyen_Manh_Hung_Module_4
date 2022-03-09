@@ -8,28 +8,15 @@ public class ContractDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Integer id;
     private int quantity;
-    @ManyToOne(targetEntity = AttachService.class)
+    @ManyToOne()
     @JoinColumn(name = "attach_service_id", referencedColumnName = "id")
     private AttachService attachService;
 
-    @ManyToOne(targetEntity = Contract.class)
+    @ManyToOne()
     @JoinColumn(name = "contract_id", referencedColumnName = "id")
     private Contract contract;
 
     public ContractDetail() {
-    }
-
-    public ContractDetail(int quantity, AttachService attachService, Contract contract) {
-        this.quantity = quantity;
-        this.attachService = attachService;
-        this.contract = contract;
-    }
-
-    public ContractDetail(Integer id, int quantity, AttachService attachService, Contract contract) {
-        this.id = id;
-        this.quantity = quantity;
-        this.attachService = attachService;
-        this.contract = contract;
     }
 
     public Integer getId() {

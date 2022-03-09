@@ -10,7 +10,7 @@ import javax.validation.constraints.Min;
 public class ContractDetailDto {
     private  Integer id;
 
-    @Min(value = 0,message = "pls input min >0")
+    @Min(value = 0,message = "Quantity must be big more than 0.")
     private int quantity;
 
     private AttachService attachService;

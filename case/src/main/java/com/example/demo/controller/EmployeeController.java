@@ -1,14 +1,19 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.ContractDto;
 import com.example.demo.dto.EmployeeDto;
+import com.example.demo.model.customer.Customer;
 import com.example.demo.model.employee.Division;
 import com.example.demo.model.employee.EducationDegree;
 import com.example.demo.model.employee.Employee;
 import com.example.demo.model.employee.Position;
+import com.example.demo.model.user.Role;
+import com.example.demo.model.user.User;
 import com.example.demo.service.employee.IDivisionService;
 import com.example.demo.service.employee.IEducationDegreeService;
 import com.example.demo.service.employee.IEmployeeService;
 import com.example.demo.service.employee.IPositionService;
+import com.example.demo.service.user.IUserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -24,18 +29,22 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("employee")
 public class EmployeeController {
     @Autowired
-    IEmployeeService employeeService;
+    private IUserService userService;
 
     @Autowired
-    IPositionService positionService;
+    private IEmployeeService employeeService;
 
     @Autowired
-    IEducationDegreeService educationDegreeService;
+    private IPositionService positionService;
 
     @Autowired
-    IDivisionService divisionService;
+    private IEducationDegreeService educationDegreeService;
+
+    @Autowired
+    private IDivisionService divisionService;
 
     @ModelAttribute(value = "positions")
     public List<Position> getListPosition() {
@@ -56,18 +65,25 @@ public class EmployeeController {
     public ModelAndView listCustomer(@RequestParam("employeeName") Optional<String> employeeName,
                                      @RequestParam("phone") Optional<String> phone,
                                      @RequestParam("address") Optional<String> address,
-                                     @PageableDefault(value = 4) Pageable pageable) {
+                                     @PageableDefault(value = 1) Pageable pageable) {
         ModelAndView  modelAndView = new ModelAndView("employee/list");
         Page<Employee> employees;
 
         if (!employeeName.isPresent() && !phone.isPresent() && !address.isPresent()){
-            modelAndView.addObject("employees", employeeService.findAll(pageable));
+            employees = employeeService.findAll(pageable);
+            modelAndView.addObject("employees",employees );
+            if (pageable.getPageNumber() > employees.getTotalPages()){
+                return new ModelAndView("/error_404");
+            }
         }else {
             employees  = employeeService.searchEmployeeContaining(employeeName.orElse(""), phone.orElse(""),address.orElse(""),pageable);
             modelAndView.addObject("employees",employees);
             modelAndView.addObject("employeeName",employeeName.orElse(""));
             modelAndView.addObject("phone",phone.orElse(""));
             modelAndView.addObject("address",address.orElse(""));
+            if (pageable.getPageNumber() > employees.getTotalPages()){
+                return new ModelAndView("/error_404");
+            }
         }
         return modelAndView;
     }
@@ -82,14 +98,20 @@ public class EmployeeController {
 
     @PostMapping(value = "/create-employee")
     public ModelAndView saveEmployee(@Validated @ModelAttribute EmployeeDto employeeDto, BindingResult bindingResult) {
-        Employee employee = new Employee();
-        BeanUtils.copyProperties(employeeDto, employee);
+        new EmployeeDto().validate(employeeDto, bindingResult);
         if (bindingResult.hasErrors()) {
             ModelAndView modelAndView = new ModelAndView("employee/create");
             modelAndView.addAllObjects(bindingResult.getModel());
             return modelAndView;
         } else {
+            Employee employee = new Employee();
+            BeanUtils.copyProperties(employeeDto, employee);
             employeeService.save(employee);
+            User user = new User();
+            user.setUsername(employeeDto.getUserName());
+            user.setPassword(employeeDto.getPassWord());
+            user.setEmployee(employee);
+            userService.save(user);
             ModelAndView modelAndView = new ModelAndView("/employee/create");
             modelAndView.addObject("employee", employee);
             modelAndView.addObject("message", "new employee created successfully");
@@ -136,8 +158,9 @@ public class EmployeeController {
     }
 
     @PostMapping(value = {"/delete-employee/{id}"})
-    public ModelAndView DeleteCustomer(@PathVariable Integer id, @PageableDefault(value = 4) Pageable pageable) {
-        employeeService.delete(id);
+    public ModelAndView DeleteCustomer(@PathVariable Integer id, @PageableDefault(value = 1) Pageable pageable) {
+        Employee employee = employeeService.findEmployeeById(id);
+        employeeService.delete(employee);
         Page<Employee> employees;
         ModelAndView modelAndView = new ModelAndView("employee/list_copy");
         modelAndView.addObject("employees", employeeService.findAll(pageable));

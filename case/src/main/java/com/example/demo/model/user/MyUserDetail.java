@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**chứa thông tin tài khoản user đăng nhập vào*/
 public class MyUserDetail implements UserDetails {
 
     private User user;
@@ -33,6 +34,10 @@ public class MyUserDetail implements UserDetails {
     @Override
     public String getUsername() {
         return user.getUsername();
+    }
+
+    public String getEmployeeName() {
+        return user.getEmployee().getEmployeeName();
     }
 
     @Override

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create Customer</title>
+    <link rel="stylesheet" href="../../fontawesome-free-5.15.4-web/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <style>
+        p {
+            color: red;
+            margin-top: -23px;
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light row d-flex" style="background-color: #272882;height: 120px">
+    <div class="col-lg-3">
+        <img src="https://codegym.vn/wp-content/uploads/2021/08/CodeGym-Logo.webp" width="290" height="50" alt="CodeGym" id="logo" data-height-percentage="70" data-actual-width="1263.33" data-actual-height="217.812">
+    </div>
+    <div class="col-lg-5"></div>
+    <div class="col-lg-4"></div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light row d-flex" style=" height: 85px;background: #e1dedc">
+    <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+        <div class="navbar-nav col-lg-9">
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link active" href="/translate/translates">Home <span class="sr-only">(current)</span></a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="#">Employee</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="3">Customer</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="#">Service</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="#">Contract Detail</a>
+        </div>
+        <div class="navbar-nav col-lg-3">
+            <form class="form-inline my-2 my-lg-0" action="/searchInHome">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="homeSearch">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="registration-form">
+    <form th:object="${translateDto}" class="well form-horizontal" action="/translate/create-translate" method="post">
+        <div class="form-icon">
+            <span><i class="icon icon-user"></i></span>
+        </div>
+
+        <th:block th:if="${message}">
+            <p style="color: blue; text-align: center" th:text="${message}"></p>
+        </th:block>
+
+        <div class="form-group" style="margin-top: -22px">
+            <label>Translate Code:</label>
+            <input th:field="*{translateCode}" type="text" class="form-control item" id="translateCode"
+                   placeholder="Translate Code">
+            <p th:errors="*{translateCode}"></p>
+        </div>
+
+        <div class="form-group">
+            <label>Customer Name:</label>
+            <div class="input-group">
+                <select th:field="*{customer}" class="form-control selectpicker"
+                        style="height: 48px; border-radius: 23px">
+                    <option th:each="customer : ${customers}"
+                            th:value="${customer.id}"
+                            th:text="${customer.customerName}">
+                    </option>
+                </select>
+            </div>
+            <p th:errors="*{customer}"></p>
+        </div>
+
+        <div class="form-group">
+            <label>Service Type:</label>
+            <div class="input-group">
+                <select th:field="*{serviceType}" class="form-control selectpicker"
+                        style="height: 48px; border-radius: 23px">
+                    <option th:each="serviceType : ${serviceTypes}"
+                            th:value="${serviceType.id}"
+                            th:text="${serviceType.serviceTypeName}">
+                    </option>
+                </select>
+            </div>
+            <p th:errors="*{serviceType}"></p>
+        </div>
+
+
+        <div class="form-group" style="margin-top: -26px">
+            <label style="margin-top: 14px;">Unit:</label>
+            <input th:field="*{until}" type="text" class="form-control item" id="until" placeholder="until">
+            <p th:errors="*{until}"></p>
+        </div>
+
+        <div class="form-group" style="margin-top: -26px">
+            <label>Area:</label>
+            <input th:field="*{area}" type="text" class="form-control item" id="area" placeholder="area">
+            <p th:errors="*{area}"></p>
+        </div>
+
+        <div class="form-group" style="margin-top: -26px">
+            <label>Date Translates:</label>
+            <div class="input-group">
+                <input th:field="*{translateDate}" placeholder="translateDate" class="form-control" type="date"
+                       style="border-radius: 35px">
+            </div>
+            <p th:errors="*{translateDate}" style="color: red; margin-top: 4px; margin-bottom: -11px"></p>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-block create-account">Create Translate</button>
+        </div>
+    </form>
+    <div class="social-media">
+        <h5>Sign up with social media</h5>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/page.ngoctrinh"><i class="icon-social-facebook" title="Facebook"></i></a>
+            <a href="#"><i class="icon-social-google" title="Google"></i></a>
+            <a href="#"><i class="icon-social-twitter" title="Twitter"></i></a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+<script src="/assets/js/script.js"></script>
+</body>
+</html>

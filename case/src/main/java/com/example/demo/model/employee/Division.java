@@ -16,17 +16,6 @@ public class Division {
     public Division() {
     }
 
-    public Division(String divisionName, List<Employee> employees) {
-        this.divisionName = divisionName;
-        this.employees = employees;
-    }
-
-    public Division(Integer id, String divisionName, List<Employee> employees) {
-        this.id = id;
-        this.divisionName = divisionName;
-        this.employees = employees;
-    }
-
     public Integer getId() {
         return id;
     }

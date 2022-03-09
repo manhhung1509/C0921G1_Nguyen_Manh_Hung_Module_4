@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit</title>
 </head>
 <body>
+<p>
+    <a href="/customerUsers/">Back to list</a>
+</p>
+<form th:action="@{/using-service/edit-contract}" th:object="${contract}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>id:</td>
+            <td th:text="${contract.id}"></td>
+        </tr>
+        <td>name:</td>
+        <td th:text="${contract.customer.customerName}"></td>
+        </tr>
 
+        <tr>
+            <td>service:</td>
+            <td><select th:field="*{service}" >
+                <option th:each="service : ${services}" th:text="${service.serviceName}" th:value="${service.id}"></option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="edit contract"></td>
+        </tr>
+    </table>
+</form>
 </body>
 </html>

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>List Employees </title>
-    <link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.15.4-web/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -11,31 +12,60 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="row">
+<nav class="navbar navbar-expand-lg navbar-light row d-flex" style="background-color: #272882;height: 120px">
     <div class="col-lg-3">
-        <a href="/home">
-            <button type="button" class="btn btn-warning" style="font-size: 17px; margin-bottom: -17px; height: 39px;">
-                <span><i class="fas fa-chevron-circle-left"></i></span> Back to Home
-            </button>
-        </a>
+        <img src="https://codegym.vn/wp-content/uploads/2021/08/CodeGym-Logo.webp" width="290" height="50" alt="CodeGym" id="logo" data-height-percentage="70" data-actual-width="1263.33" data-actual-height="217.812">
+    </div>
+    <div class="col-lg-5"></div>
+    <div class="col-lg-4 d-flex justify-content-end align-self-sm-start">
+        <th:block sec:authorize="isAuthenticated() == false">
+            <a href="/login"><button type="button" class="btn btn-success" style="width: 80px">Login</button></a>
+        </th:block>
 
+        <th:block sec:authorize="isAuthenticated()">
+            <a href="https://www.facebook.com/page.ngoctrinh" sec:authentication="principal.employeeName" style="color: white;font-size: 20px;font-family: cursive;padding-top: 4px;padding-right: 8px"></a>
+            <a href="/logout"><button type="button" class="btn btn-success">Logout</button></a>
+        </th:block>
     </div>
-    <div class="col-lg-6">
-        <h1 style="text-align: center;margin-top:41px; margin-bottom: 42px; color: green">Employees</h1>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light row d-flex" style=" height: 85px;background: #e1dedc;margin-bottom: 62px">
+    <div class="collapse navbar-collapse row" id="navbarSupportedContent">
+        <div class="navbar-nav col-lg-9">
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link active" href="/home">Home <span class="sr-only">(current)</span></a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="/employee/employees">Employee</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link" href="/customer/customers">Customer</a>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="/service/services">Service</a>
+            <div class="dropdown">
+                <button style="font-size: 25px; margin-top: 2px;padding-left: 37px;padding-right: -27px;background: #e1dedc;border: none; color: #706f6e;"
+                        class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Contract
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background: #e1dedc">
+                    <a href="/contract/create-contract"> <button class="dropdown-item" type="button">Create Contract</button></a>
+                    <a href="/contract-details/create-contract-detail"><button class="dropdown-item" type="button">Create Contract Detail</button></a>
+                </div>
+            </div>
+            <a style="font-size: 25px; padding-left: 39px" class="nav-item nav-link " href="/contract-details/create-contract-detail">Contract Detail</a>
+        </div>
+        <div class="navbar-nav col-lg-3">
+            <form class="form-inline my-2 my-lg-0" action="/searchInHome">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="homeSearch">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
     </div>
-    <div class="col-lg-3">
-        <a href="/create-employee" style="font-size: 20px;color: #3f48eb; padding-left: 99px">
-            <button type="button" style="background: #14ce14;font-size: 17px;height: 39px;margin-top: 3px;border-radius: 6px;border: none">
-                Create Employee <span><i class="fas fa-user-plus" style="color: red"></i></span>
-            </button>
-        </a>
-    </div>
-</div>
-<form class="d-flex col-6" action="/employees" method="get">
-    <input class="form-control" name="employeeName" type="search" placeholder="name">
-    <input class="form-control" name="phone" type="search" placeholder="phone">
+</nav>
+
+<form class="d-flex col-12" action="/employee/employees" method="get">
+    <input class="form-control" name="customerName" type="search" placeholder="name">
+    <input class="form-control" name="email" type="search" placeholder="email">
     <input class="form-control" name="address" type="search" placeholder="address">
     <input class="btn btn-light" type="submit" value="Search">
+    <a href="/employee/create-employee" style="font-size: 20px;color: #3f48eb; padding-left: 99px">
+        <button type="button" style="background: #14ce14;font-size: 17px;height: 39px;margin-top: 3px;border-radius: 6px;border: none; width: 169px;margin-left: 341px">
+            Create Employee <span><i class="fas fa-user-plus" style="color: red"></i></span>
+        </button>
+    </a>
 </form>
 
 <div id="searchTable">
@@ -71,7 +101,7 @@
                 <td th:text="${employee.employeeSalary}"></td>
                 <td th:text="${employee.employeeAddress}"></td>
                 <td>
-                    <a th:href="@{/edit-employee/__${employee.id}__}">
+                    <a th:href="@{/employee/edit-employee/__${employee.id}__}">
                         <button type="button" class="btn btn-warning" >Edit</button>
                     </a>
                 </td>
@@ -105,19 +135,55 @@
     </div>
 </div>
 
-<div>
-    <a th:href="@{'/employees'(page=${employees.number - 1}, employeeName=${employeeName}, phone = ${phone}, adrress = ${address})}"
-       th:if="${employees.hasPrevious()}">Previous</a>
-    <span th:text="${employees.number + 1}"></span>/<span th:text="${employees.totalPages}"></span>
-    <a th:href="@{'/employees'(page=${employees.number + 1}, employeeName=${employeeName}, phone = ${phone}, adrress = ${address})}"
-       th:if="${employees.hasNext()}">Next</a>
-</div>
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end page_border">
 
-<div>
-    <span th:each="pageNo:${#numbers.sequence(0,employees.totalPages - 1)}">
-            <a th:href="@{/employees(page=${pageNo})}" th:text="${pageNo+1}"></a>
-        </span>
-</div>
+        <li class="page-item  " th:if="${employees.hasPrevious()}">
+            <a class="page-link page_hover" th:href="@{'/employee/employees'(page=${employees.number - 1}, employeeName=${employeeName}, phone = ${phone}, adrress = ${address})}" tabindex="-1"
+               aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item disabled page_dis" th:unless="${employees.hasPrevious()}">
+            <a class="page-link " href="#" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item page_list">
+            <div class="page-link ">
+                <span th:text="${employees.number+1}"></span> of
+                <span th:text="${employees.totalPages}"></span>
+            </div>
+
+        </li>
+        <li class="page-item" th:if="${employees.hasNext()}">
+            <a class="page-link page_hover " th:href="@{'/employee/employees'(page=${employees.number + 1}, employeeName=${employeeName}, phone = ${phone}, adrress = ${address})}" tabindex="-1"
+               aria-disabled="true">Next</a>
+        </li>
+        <li class="page-item disabled page_dis" th:unless="${employees.hasNext()}">
+            <a class="page-link  " href="#" tabindex="-1" aria-disabled="true">Next</a>
+        </li>
+    </ul>
+
+</nav>
+
+<!--&lt;!&ndash;case 1:&ndash;&gt;-->
+<!--<nav aria-label="Page navigation example" th:if="${employees.totalPages <= 8}">-->
+<!--    <ul class="pagination d-flex">-->
+<!--        <li class="page-item">-->
+<!--            <a class="page-link" th:href="@{'/employee/employees'(page=${employees.number - 1}, employeeName=${employeeName}, phone = ${phone}, adrress = ${address})}" th:if="${employees.hasPrevious()}">Previous-->
+<!--            </a>-->
+<!--        </li>-->
+
+<!--        <li class="page-item" th:each="pageNo:${#numbers.sequence(0,7)}">-->
+<!--            <a class="page-link" th:href="@{'/employee/employees'(page=${pageNo}, employeeName=${employeeName}, phone = ${phone}, adrress = ${address})}" th:text="${pageNo+1}">-->
+<!--            </a>-->
+<!--        </li>-->
+
+<!--        <li class="page-item">-->
+<!--            <a class="page-link" th:href="@{'/employee/employees'(page=${employees.number + 1}, employeeName=${employeeName}, phone = ${phone}, adrress = ${address})}" th:if="${employees.hasPrevious() && employees.number < employees.totalPages -1 || employees.number == 0}">Previous-->
+<!--            </a>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--</nav>-->
+
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -131,12 +197,15 @@
     function showDelete(id) {
         $.ajax({
             type: "GET",
-            url: "/delete-employee/" + id,
+            url: "/employee/delete-employee/" + id,
             dataType: "HTML",
             success: function (data) {
                 console.log(data);
                 $(".modal-body").html(data);
                 $("#exampleModal").modal("show");
+            },
+            error: function (data) {
+                window.location.href = "http://localhost:8080/403";
             }
         })
     }
@@ -144,7 +213,7 @@
     function actionDelete(id) {
         $.ajax({
             type: "POST",
-            url: "/delete-employee/" + id,
+            url: "/employee/delete-employee/" + id,
             dataType: "HTML",
             success: function (data) {
                 let message = "Delete successfully!"

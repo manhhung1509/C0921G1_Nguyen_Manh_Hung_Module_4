@@ -17,16 +17,6 @@ public class Position {
     public Position() {
     }
 
-    public Position(Integer id, String positionName, List<Employee> employees) {
-        this.id = id;
-        this.positionName = positionName;
-        this.employees = employees;
-    }
-
-    public Position(String positionName, List<Employee> employees) {
-        this.positionName = positionName;
-        this.employees = employees;
-    }
 
     public Integer getId() {
         return id;

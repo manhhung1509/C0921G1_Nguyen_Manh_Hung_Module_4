@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<style>
+    #clickDelete{
+        background: #f31b1b;
+        color: black;
+        margin-top: 20px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Detail</h3>
+<div>
+    <span>Translate code: </span><span th:text="${translate.translateCode}"></span><br>
+    <span>Service type: </span><span th:text="${translate.serviceType.serviceTypeName}"></span><br>
+    <span>Date translate : </span><span th:text="${translate.translateDate}"></span><br>
+    <span>Unit: </span><span th:text="${translate.until}"></span><br>
+    <span>Area: </span><span th:text="${translate.area}"></span><br>
+    <span>Customer name: </span><span th:text="${translate.customer.customerName}"></span><br>
+    <span>Phone number: </span><span th:text="${translate.customer.phoneNumber}"></span><br>
+    <span>Email: </span><span th:text="${translate.customer.email}"></span><br>
+</div>
+<button id="clickDelete" type="button" class="btn btn-danger"  th:onclick="'javascript:actionDelete(\''+${translate.id}+'\');'">Delete</button>
+<a href="/translate/translates">
+    <button type="button" style="background: #07e507">Back</button>
+</a>
+</body>
+</html>

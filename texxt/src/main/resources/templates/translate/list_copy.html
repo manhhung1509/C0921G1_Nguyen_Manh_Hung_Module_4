@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  </head>
+<body>
+<div id="searchTable">
+    <table class="table table-bordered table-striped ">
+        <tr>
+            <td>NO</td>
+            <td>Translate Code</td>
+            <td>Customer Name</td>
+            <td>Translate Date</td>
+            <td>Service Type</td>
+            <td>Unit</td>
+            <td>Area</td>
+            <td>Detail</td>
+        </tr>
+
+        <th:block th:each="translate ,loop : ${translates}">
+            <tr>
+
+                <td th:text="${loop.count}"></td>
+                <td th:text="${translate.translateCode}"></td>
+                <td th:text="${translate.customer.customerName}"></td>
+                <td th:text="${translate.translateDate}"></td>
+                <td th:text="${translate.serviceType.serviceTypeName}"></td>
+                <td th:text="${translate.until}"></td>
+                <td th:text="${translate.area}"></td>
+                <td>
+                    <button type="button" class="btn btn-danger" id="btnModalDelete"
+                            th:onclick="'javascript:showDelete(\''+${translate.id}+'\');'">Delete
+                    </button>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+</div>
+</body>
+</html>

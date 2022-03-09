@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -36,19 +37,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/customers").permitAll() //Khi login bằng URL /login thì khi thành công sẽ vào '/student
+                .defaultSuccessUrl("/home").permitAll() //Khi login bằng URL /login thì khi thành công sẽ vào '/student
                 .and()
                 .authorizeRequests()
-                .antMatchers("/home", "/**/*.js", "/**/*.css", "/**/*.jpg", "/**/*.png").permitAll() /*không cần xác thực.*/
-                .antMatchers("/customers").hasAnyRole("USER", "ADMIN")
-                .antMatchers("/customers/create-customer").hasRole("ADMIN")
-//                    .antMatchers("/student/edit").hasRole("ADMIN")
-//                    .antMatchers("/student/view").hasRole("ADMIN")
-//                     .antMatchers("/student/**").hasRole("ADMIN")
-                .anyRequest().authenticated(); // Tất cả request gọi lên server đều phải login
+                .antMatchers("/home", "/**/*.js", "/**/*.css", "/**/*.jpg", "/**/*.png","**/*.mp4").permitAll() /*không cần xác thực.*/
+                .antMatchers("/customer/customers").hasRole("USER")
+                .antMatchers("/customer/**").hasRole("ADMIN")
+                .antMatchers("/employee/employees").hasRole("USER")
+                .antMatchers("/employee/**").hasRole("ADMIN")
+                .antMatchers("/service/services").hasRole("USER")
+                .antMatchers("/service/**").hasRole("ADMIN")
+                .anyRequest().authenticated() // Tất cả request gọi lên server đều phải login
+        .and().logout().logoutSuccessUrl("/login");
+
         /*Cấu hình remember me*/
         http.authorizeRequests().and().rememberMe()
                 .tokenRepository(this.persistentTokenRepository()).tokenValiditySeconds(60 * 60 * 24);
+
+        http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
+
     }
 
     /*Cấu hình nơi lưu thông tin login*/
@@ -57,4 +64,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         InMemoryTokenRepositoryImpl inMemoryTokenRepository = new InMemoryTokenRepositoryImpl();
         return inMemoryTokenRepository;
     }
+
 }

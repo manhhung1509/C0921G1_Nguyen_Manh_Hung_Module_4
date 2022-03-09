@@ -15,17 +15,18 @@ public class CustomerService implements ICustomerService {
     ICustomerRepository customerRepository;
 
     @Override
+    public Iterable<Customer> findAll() {
+        return customerRepository.findAll();
+    }
+
+    @Override
     public Page<Customer> findAll(Pageable page) {
         return customerRepository.findAll(page);
     }
 
-//    @Override
-//    public Page<Customer> findCustomerByNameContaining(String name, Pageable pageable) {
-//        return customerRepository.findCustomerByCustomerNameContaining(name,pageable);
-//    }
-
     @Override
     public void save(Customer customer) {
+        customer.setFlag("1");
         customerRepository.save(customer);
     }
 
@@ -35,12 +36,19 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public void delete(Integer id) {
-        customerRepository.deleteById(id);
+    public void delete(Customer customer) {
+        customer.setFlag("0");
+        customerRepository.save(customer);
     }
 
     @Override
     public Page<Customer> searchCustomerContaining(String name, String email, String address, Pageable pageable) {
         return customerRepository.searchCustomer(name, email, address, pageable);
+    }
+
+    @Override
+    public Boolean checkCustomerCodeExits(String customerCode) {
+        System.err.println(customerRepository.existsByCustomerCode(customerCode));;
+        return customerRepository.existsByCustomerCode(customerCode);
     }
 }

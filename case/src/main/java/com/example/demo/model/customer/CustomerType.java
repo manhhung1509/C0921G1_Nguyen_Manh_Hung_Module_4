@@ -16,17 +16,6 @@ public class CustomerType {
     public CustomerType() {
     }
 
-    public CustomerType(String customerTypeName, List<Customer> customers) {
-        this.customerTypeName = customerTypeName;
-        this.customers = customers;
-    }
-
-    public CustomerType(Integer id, String customerTypeName, List<Customer> customers) {
-        this.id = id;
-        this.customerTypeName = customerTypeName;
-        this.customers = customers;
-    }
-
     public Integer getId() {
         return id;
     }

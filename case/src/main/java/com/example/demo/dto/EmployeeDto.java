@@ -3,63 +3,72 @@ package com.example.demo.dto;
 import com.example.demo.model.employee.Division;
 import com.example.demo.model.employee.EducationDegree;
 import com.example.demo.model.employee.Position;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.validation.constraints.*;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Calendar;
+import java.util.Date;
 
-public class EmployeeDto {
+public class EmployeeDto implements Validator {
     private  Integer id;
-    @NotNull(message = "input not null")
-    @NotBlank
+    @NotNull(message = "input must not null.")
+    @NotBlank(message = "enter employee name.")
     private  String employeeName;
-    @NotNull(message = "input not null")
-    @NotBlank
-    private  String employeeBirthday;
-    @NotNull(message = "input not null")
-    @Min(value = 0,message = "Enter value >0")
+    @NotNull(message = "PLease input birthday")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date employeeBirthday;
+    @NotEmpty(message = "input must not empty.")
+    @Min(value = 0,message = "Id card must be big more than 0.")
+    @Pattern(regexp = "^\\d{12}|\\d{9}$", message = "Invalid id card format")
     private String employeeIdCard;
+    @NotNull(message = "enter salary")
     private Double employeeSalary;
-    @NotNull
-    @Pattern(regexp = "^[0-9]{10}")
+    @NotNull(message = "not null")
+    @NotEmpty(message = "not empty")
+    @Pattern(regexp = "^[0-9]{10}", message = "")
     private  String employeePhone;
-    @NotNull
-    @Email
+    @NotEmpty
+    @Email(message = "Invalid email format")
     private  String employeeEmail;
     @NotNull
     private String employeeAddress;
-    private Division division;  private Position position;
+    @NotNull(message = "Please select division")
+    private Division division;
+    private Position position;
     private EducationDegree educationDegree;
-
-    public EmployeeDto(Integer id, String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary, String employeePhone, String employeeEmail,
-                       String employeeAddress, Division division, Position position, EducationDegree educationDegree) {
-        this.id = id;
-        this.employeeName = employeeName;
-        this.employeeBirthday = employeeBirthday;
-        this.employeeIdCard = employeeIdCard;
-        this.employeeSalary = employeeSalary;
-        this.employeePhone = employeePhone;
-        this.employeeEmail = employeeEmail;
-        this.employeeAddress = employeeAddress;
-        this.division = division;
-        this.position = position;
-        this.educationDegree = educationDegree;
-    }
-
-    public EmployeeDto(String employeeName, String employeeBirthday, String employeeIdCard, Double employeeSalary, String employeePhone, String employeeEmail,
-                       String employeeAddress, Division division, Position position, EducationDegree educationDegree) {
-        this.employeeName = employeeName;
-        this.employeeBirthday = employeeBirthday;
-        this.employeeIdCard = employeeIdCard;
-        this.employeeSalary = employeeSalary;
-        this.employeePhone = employeePhone;
-        this.employeeEmail = employeeEmail;
-        this.employeeAddress = employeeAddress;
-        this.division = division;
-        this.position = position;
-        this.educationDegree = educationDegree;
-    }
+    private String flag;
+    private String userName;
+    private String passWord;
 
     public EmployeeDto() {
+    }
 
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassWord() {
+        return passWord;
+    }
+
+    public void setPassWord(String passWord) {
+        this.passWord = passWord;
     }
 
     public Integer getId() {
@@ -78,11 +87,11 @@ public class EmployeeDto {
         this.employeeName = employeeName;
     }
 
-    public String getEmployeeBirthday() {
+    public Date getEmployeeBirthday() {
         return employeeBirthday;
     }
 
-    public void setEmployeeBirthday(String employeeBirthday) {
+    public void setEmployeeBirthday(Date employeeBirthday) {
         this.employeeBirthday = employeeBirthday;
     }
 
@@ -148,5 +157,35 @@ public class EmployeeDto {
 
     public void setEducationDegree(EducationDegree educationDegree) {
         this.educationDegree = educationDegree;
+    }
+
+    public static boolean checkDate(Date employeeBirthday) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(employeeBirthday);
+        LocalDate date = LocalDate.of(cal.get(Calendar.YEAR),
+                cal.get(Calendar.MONTH) + 1,
+                cal.get(Calendar.DAY_OF_MONTH));
+        boolean flag = false;
+        LocalDate currentDate = LocalDate.now();
+        int age = Period.between(date, currentDate).getYears();
+        if (age < 100 && age >= 18) {
+            flag = true;
+        }
+        return flag;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        EmployeeDto employeeDto = (EmployeeDto) target;
+        if (employeeDto.employeeBirthday != null){
+            if (!checkDate(employeeDto.employeeBirthday)) {
+                errors.rejectValue("employeeBirthday", "birthDay", "Employee is under 18 years old");
+            }
+        }
     }
 }

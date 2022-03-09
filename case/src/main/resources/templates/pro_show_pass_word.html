@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+        .input-container {
+            width: 60%;
+            margin: 50px 10px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #aaa;
+            border-radius: 3px;
+        }
+        .input-container input {
+            padding: 10px;
+            width: 100%;
+            font-size: 16px;
+            border: 0;
+            outline: none;
+            color: #333;
+        }
+        i {
+            margin: 0 10px;
+            color: #aaa;
+            cursor: default;
+        }
+    </style>
+</head>
+<body>
+<div class="input-container">
+    <input type="password" />
+    <i class="material-icons visibility">visibility_off</i>
+</div>
+
+<script>
+    const visibilityToggle = document.querySelector('.visibility');
+
+    const input = document.querySelector('.input-container input');
+
+    var password = true;
+
+    visibilityToggle.addEventListener('click', function() {
+        if (password) {
+            input.setAttribute('type', 'text');
+            visibilityToggle.innerHTML = 'visibility';
+        } else {
+            input.setAttribute('type', 'password');
+            visibilityToggle.innerHTML = 'visibility_off';
+        }
+        password = !password;
+
+    });
+</script>
+</body>
+</html>

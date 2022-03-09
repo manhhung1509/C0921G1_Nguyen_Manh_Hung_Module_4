@@ -4,8 +4,10 @@ package com.example.demo.model.contract;
 import com.example.demo.model.customer.Customer;
 import com.example.demo.model.employee.Employee;
 import com.example.demo.model.service.Services;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,53 +15,28 @@ public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Integer id;
-    @Column(columnDefinition = "date")
-    private  String contractStartDay;
-    @Column(columnDefinition = "date")
-    private  String contractEndDay;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date contractStartDay;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private  Date contractEndDay;
     private double contractDeposit;
     private double contractTotal;
     @OneToMany(targetEntity = ContractDetail.class)
     private List<ContractDetail> contractDetails;
 
-    @ManyToOne(targetEntity = Services.class)
+    @ManyToOne()
     @JoinColumn(name = "service_id", referencedColumnName = "id")
     private Services service;
 
-    @ManyToOne(targetEntity = Employee.class)
+    @ManyToOne()
     @JoinColumn(name = "employee_id", referencedColumnName = "id")
     private Employee employee;
 
-    @ManyToOne(targetEntity = Customer.class)
+    @ManyToOne()
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
     public Contract() {
-    }
-
-    public Contract(Integer id, String contractStartDay, String contractEndDay, double contractDeposit, double contractTotal,
-                    List<ContractDetail> contractDetails, Services service, Employee employee, Customer customer) {
-        this.id = id;
-        this.contractStartDay = contractStartDay;
-        this.contractEndDay = contractEndDay;
-        this.contractDeposit = contractDeposit;
-        this.contractTotal = contractTotal;
-        this.contractDetails = contractDetails;
-        this.service = service;
-        this.employee = employee;
-        this.customer = customer;
-    }
-
-    public Contract(String contractStartDay, String contractEndDay, double contractDeposit, double contractTotal,
-                    List<ContractDetail> contractDetails, Services service, Employee employee, Customer customer) {
-        this.contractStartDay = contractStartDay;
-        this.contractEndDay = contractEndDay;
-        this.contractDeposit = contractDeposit;
-        this.contractTotal = contractTotal;
-        this.contractDetails = contractDetails;
-        this.service = service;
-        this.employee = employee;
-        this.customer = customer;
     }
 
     public Integer getId() {
@@ -70,19 +47,19 @@ public class Contract {
         this.id = id;
     }
 
-    public String getContractStartDay() {
+    public Date getContractStartDay() {
         return contractStartDay;
     }
 
-    public void setContractStartDay(String contractStartDay) {
+    public void setContractStartDay(Date contractStartDay) {
         this.contractStartDay = contractStartDay;
     }
 
-    public String getContractEndDay() {
+    public Date getContractEndDay() {
         return contractEndDay;
     }
 
-    public void setContractEndDay(String contractEndDay) {
+    public void setContractEndDay(Date contractEndDay) {
         this.contractEndDay = contractEndDay;
     }
 
